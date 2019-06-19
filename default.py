@@ -458,7 +458,7 @@ class LoungeRipper():
                     self.buildDestFileAndFolder()
 
                 # self.encoder = '"%s" -i "%s" -o "%s" -f mkv -d slower -N %s --native-dub -m -Z "High Profile" -s 1 %s %s %s %s %s 2>&1' % \
-                self.encoder = '"%s" -i "%s" -o "%s" -f mkv --decomb fast -N %s --native-dub -m -Z "High Profile" -s 1 %s %s %s %s %s 2>&1' % \
+                self.encoder = '"%s" -i "%s" -o "%s" -f mkv --decomb fast -N %s --native-dub -m -Z "H.264 MKV 1080p30" -s 1 %s %s %s %s %s 2>&1' % \
                                (self.encoder_executable,
                                os.path.join(self.tempfolder, self.src),
                                os.path.join(self.destfolder, self.destfile),
