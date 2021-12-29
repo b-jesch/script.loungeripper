@@ -77,7 +77,7 @@ msgid "Black and White"
 msgstr ""
 
 msgctxt "#30029"
-msgid "Current Task: %s - %s%% (%s remaining)"
+msgid "Current Task: %s (%s remaining)"
 msgstr ""
 
 msgctxt "#30030"
@@ -121,11 +121,11 @@ msgid "Cleanup Temporary Folder completely"
 msgstr ""
 
 msgctxt "#30040"
-msgid "Current Task: %s - %s%%"
+msgid "Codec"
 msgstr ""
 
 msgctxt "#30041"
-msgid "Copy File to Destination Folder"
+msgid "UHD (4K)"
 msgstr ""
 
 msgctxt "#30042"
@@ -175,11 +175,11 @@ msgid "One or more System Settings are invalid. Please check Settings again."
 msgstr ""
 
 msgctxt "#30053"
-msgid "MakeMKV don't work as expected. The Version is too old, the License Key is invalid or another Error has occured (see logfile)."
+msgid "MakeMKV don't work as expected. The Version is too old, the License Key is invalid, the process was aborted by user or another Error has occured (see logfile)."
 msgstr ""
 
 msgctxt "#30054"
-msgid "An Error occured while Encoding a Stream with HandBrakeCLI."
+msgid "An Error occured while Encoding a Stream with HandBrakeCLI or Encoding was aborted by User."
 msgstr ""
 
 msgctxt "#30055"
@@ -200,6 +200,7 @@ msgstr ""
 
 msgctxt "#30059"
 msgid "There are more than one file present in source directory. Would You process all files with the same parameters at once? This requires high time consumption."
+msgstr ""
 
 #Other
 
@@ -227,7 +228,13 @@ msgctxt "#30065"
 msgid "Update Library after processing"
 msgstr ""
 
-#empty strings from id 30065 to 30067
+msgctxt "#30066"
+msgid "Current Task: %s"
+msgstr ""
+
+msgctxt "#30067"
+msgid "Copy File to Destination Folder"
+msgstr ""
 
 msgctxt "#30068"
 msgid "Drive ID"
@@ -305,4 +312,80 @@ msgstr ""
 
 msgctxt "#30089"
 msgid "Low"
+msgstr ""
+
+msgctxt "#30090"
+msgid "H.264"
+msgstr ""
+
+msgctxt "#30091"
+msgid "H.265 (HEVC)"
+msgstr ""
+
+msgctxt "#30111"
+msgid "Various resolution levels from 4K (UHD) to SD format (PAL/NTSC) are available for the target format."
+msgstr ""
+
+msgctxt "#30112"
+msgid "The higher the quality level is chosen, the larger the file size of the target format will be. A good compromise is the quality level 'High'."
+msgstr ""
+
+msgctxt "#30116"
+msgid "To rip a BluRay/DVD the program 'makemkvcon' is needed. Enter the path to the installed file."
+msgstr ""
+
+msgctxt "#30117"
+msgid "For conversion to the target format the program 'HandBarkeCLI' is needed. Enter the path to the installed file."
+msgstr ""
+
+msgctxt "#30119"
+msgid "Deletes the ripped source file(s) when the selected operation is completed successfully."
+msgstr ""
+
+msgctxt "#30120"
+msgid "Temporary storage for files of the individual process steps. This folder must reside in the local file system and must have at least twice the storage space of the BluRay/DVD available."
+msgstr ""
+
+msgctxt "#30121"
+msgid "Destination directory. This can also be a directory on a network storage (NAS) and should be a directory in the corresponding media library."
+msgstr ""
+
+msgctxt "#30122"
+msgid "Minimum title length for content ripped from BluRay/DVD. This setting can be used to exclude e.g. 'Making Of' or shorter movies/trailers from ripping."
+msgstr ""
+
+msgctxt "#30123"
+msgid "Default language to be ripped."
+msgstr ""
+
+msgctxt "#30124"
+msgid "Rip all audio streams that are present on the BluRay/DVD (increases the size of the destination file)."
+msgstr ""
+
+msgctxt "#30125"
+msgid "After ripping a BluRay/DVD, launches the HandBrake encoder with the desired target quality to reduce the size of the target file compared to the original."
+msgstr ""
+
+msgctxt "#30126"
+msgid "Eject disc after ripping."
+msgstr ""
+
+msgctxt "#30127"
+msgid "Creates a subdirectory in the destination folder with the title of the movie and puts it there."
+msgstr ""
+
+msgctxt "#30128"
+msgid "The destination file is encoded in black and white."
+msgstr ""
+
+msgctxt "#30140"
+msgid "The codec used to compress the destination file. H.265 provides a smaller file size, but takes more time than the H.264 codec."
+msgstr ""
+
+msgctxt "#30161"
+msgid "The addon has 3 modes 'Rip only', 'Rip and encode' and 'Encode only'. Select the mode you want."
+msgstr ""
+
+msgctxt "#30165"
+msgid "Update library after processing. For this purpose, the created target file should already be in the library folder."
 msgstr ""

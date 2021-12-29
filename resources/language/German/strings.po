@@ -74,8 +74,8 @@ msgid "Black and White"
 msgstr "Schwarz-Weiss"
 
 msgctxt "#30029"
-msgid "Current Task: %s - %s%% (%s remaining)"
-msgstr "aktueller Schritt: %s - %s%% (%s verbleibend)"
+msgid "Current Task: %s (%s remaining)"
+msgstr "aktueller Schritt: %s (%s verbleibend)"
 
 msgctxt "#30030"
 msgid "Title of Movie"
@@ -118,12 +118,12 @@ msgid "Cleanup Temporary Folder completely"
 msgstr "Temporäres Verzeichnis komplett bereinigen"
 
 msgctxt "#30040"
-msgid "Current Task: %s - %s%%"
-msgstr "aktueller Schritt: %s - %s%%"
+msgid "Codec"
+msgstr "Codec"
 
 msgctxt "#30041"
-msgid "Copy File to Destination Folder"
-msgstr "kopiere Datei ins Zielverzeichnis"
+msgid "UHD (4K)"
+msgstr "UHD (4K)"
 
 msgctxt "#30042"
 msgid "Full HD"
@@ -170,12 +170,12 @@ msgid "One or more System Settings are invalid. Please check Settings again."
 msgstr "Eine oder mehrere Systemeinstellungen sind ungültig. Bitte überprüfe nochmals die Einstellungen in den Settings des Addons."
 
 msgctxt "#30053"
-msgid "MakeMKV don't work as expected. The Version is too old, the License Key is invalid or another Error has occured (see logfile)."
-msgstr "MakeMKV arbeitet nicht wie erwartet. Die Softwareversion ist evtl. zu alt, der Lizenzschlüssel ungültig oder ein anderer Fehler ist aufgetreten (Details siehe Logdatei)."
+msgid "MakeMKV don't work as expected. The Version is too old, the License Key is invalid, the process was aborted by user or another Error has occured (see logfile)."
+msgstr "MakeMKV arbeitet nicht wie erwartet. Die Softwareversion ist evtl. zu alt, der Lizenzschlüssel ungültig, der Prozess wurde durch den Nutzer abgebrochen oder ein anderer Fehler ist aufgetreten (Details siehe Logdatei)."
 
 msgctxt "#30054"
-msgid "An Error occured while Encoding a Stream with HandBrakeCLI."
-msgstr "Während des Encodierens mit HandBrakeCLI ist ein Fehler aufgetreten."
+msgid "An Error occured while Encoding a Stream with HandBrakeCLI or Encoding was aborted by User."
+msgstr "Während des Encodierens mit HandBrakeCLI ist ein Fehler aufgetreten oder die Encodierung wurde durch den Nutzer abgebrochen."
 
 msgctxt "#30055"
 msgid "All current Ripper or Encoder Tasks was killed."
@@ -220,6 +220,14 @@ msgstr "Zusätzliche HandBrakeCLI Argumente"
 msgctxt "#30065"
 msgid "Update Library after processing"
 msgstr "Nach Abarbeitung Bibliothek aktualisieren"
+
+msgctxt "#30066"
+msgid "Current Task: %s"
+msgstr "aktueller Schritt: %s"
+
+msgctxt "#30067"
+msgid "Copy File to Destination Folder"
+msgstr "kopiere Datei ins Zielverzeichnis"
 
 msgctxt "#30068"
 msgid "Drive ID"
@@ -296,3 +304,79 @@ msgstr "Mäßig"
 msgctxt "#30089"
 msgid "Low"
 msgstr "Niedrig"
+
+msgctxt "#30090"
+msgid "H.264"
+msgstr "H.264"
+
+msgctxt "#30091"
+msgid "H.265 (HEVC)"
+msgstr "H.265 (HEVC)"
+
+msgctxt "#30111"
+msgid "Various resolution levels from 4K (UHD) to SD format (PAL/NTSC) are available for the target format."
+msgstr "Für das Zielformat stehen verschiedene Auflösungsstufen von 4K (UHD) bis zum SD-Format (PAL/NTSC) zur Verfügung."
+
+msgctxt "#30112"
+msgid "The higher the quality level is chosen, the larger the file size of the target format will be. A good compromise is the quality level 'High'."
+msgstr "Je höher die Qualitätsstufe gewählt wird, umso größer wird die Dateigröße des Zielformats sein. Ein guter Kompromiss ist die Qualitätsstufe 'Hoch'."
+
+msgctxt "#30116"
+msgid "To rip a BluRay/DVD the program 'makemkvcon' is needed. Enter the path to the installed file."
+msgstr "Zum Rippen einer BluRay/DVD wird das Programm 'makemkvcon' benötigt. Gebe den Pfad zur installierten Datei ein."
+
+msgctxt "#30117"
+msgid "For conversion to the target format the program 'HandBarkeCLI' is needed. Enter the path to the installed file."
+msgstr "Zur Konvertierung in das Zielformat wird das Programm 'HandBarkeCLI' benötigt. Gebe den Pfad zur installierten Datei ein."
+
+msgctxt "#30119"
+msgid "Deletes the ripped source file(s) when the selected operation is completed successfully."
+msgstr "Löscht die gerippte(n) Quelldatei(en) wenn der gewählte Vorgang erfolgreich abgeschlossen wurde."
+
+msgctxt "#30120"
+msgid "Temporary storage for files of the individual process steps. This folder must reside in the local file system and must have at least twice the storage space of the BluRay/DVD available."
+msgstr "Temporäres Verzeichnis für die Dateien der einzelnen Prozessschritte. Dieser Ordner muss sich im lokalen Dateisystem befinden und mindestens den zweifachen Speicherplatz der BluRay/DVD zur Verfügung stellen."
+
+msgctxt "#30121"
+msgid "Destination directory. This can also be a directory on a network storage (NAS) and should be a directory in the corresponding media library."
+msgstr "Zielverzeichnis. Das kann auch ein Verzeichnis auf einem Netzwerkspeicher (NAS) sein und sollte ein Verzeichnis in der entsprechenden Medienbibliothek sein."
+
+msgctxt "#30122"
+msgid "Minimum title length for content ripped from BluRay/DVD. This setting can be used to exclude e.g. 'Making Of' or shorter movies/trailers from ripping."
+msgstr "Minimale Titellänge für Inhalte, die von BluRay/DVD gerippt werden. Diese Einstellung kann verwendet werden, um z.B. 'Making Of' oder kürzere Filme/Trailer vom Rippen auszuschliessen."
+
+msgctxt "#30123"
+msgid "Default language to be ripped."
+msgstr "Standardsprache, die gerippt werden soll."
+
+msgctxt "#30124"
+msgid "Rip all audio streams that are present on the BluRay/DVD (increases the size of the destination file)."
+msgstr "alle Audiostreams rippen, die auf der BluRay/DVD vorhanden sind (vergrößert die Zieldatei)."
+
+msgctxt "#30125"
+msgid "After ripping a BluRay/DVD, launches the HandBrake encoder with the desired target quality to reduce the size of the target file compared to the original."
+msgstr "Startet nach dem Rippen einer BluRay/DVD den HandBrake Encoder mit der gewünschten Zielqualität, um die Größe der Zieldatei gegenüber dem Original zu verringern."
+
+msgctxt "#30126"
+msgid "Eject disc after ripping."
+msgstr "Disk nach dem Rippen auswerfen."
+
+msgctxt "#30127"
+msgid "Creates a subdirectory in the destination folder with the title of the movie and puts it there."
+msgstr "Erstellt im Zielordner ein Unterverzeichnis mit Titel des Films und legt diesen dort ab."
+
+msgctxt "#30128"
+msgid "The destination file is encoded in black and white."
+msgstr "Die Zieldatei wird in Schwarz-Weiss enkodiert."
+
+msgctxt "#30140"
+msgid "The codec used to compress the destination file. H.265 provides a smaller file size, but takes more time than the H.264 codec."
+msgstr "Der Codec, der zur Komprimierung der Zieldatei verwendet wird. H.265 liefert eine kleinere Dateigröße, benötigt jedoch mehr Zeit als der H.264 Codec."
+
+msgctxt "#30161"
+msgid "The addon has 3 modes 'Rip only', 'Rip and encode' and 'Encode only'. Select the mode you want."
+msgstr "Das Addon verfügt über die 3 Modis 'Nur Rippen', 'Rippen und Enkodieren' und 'Nur Enkodieren'. Wähle den gewünschten Modus aus."
+
+msgctxt "#30165"
+msgid "Update library after processing. For this purpose, the created target file should already be in the library folder."
+msgstr "Nach Abarbeitung Bibliothek aktualisieren. Dazu sollte sich die erzeugte Zieldatei bereits im Bibliotheksordner befinden."

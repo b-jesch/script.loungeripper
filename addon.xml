@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.loungeripper" name="Lounge Ripper" version="0.1.27" provider-name="Birger Jesch">
+<addon id="script.loungeripper" name="Lounge Ripper" version="3.0.0+matrix" provider-name="Birger Jesch">
 	<requires>
-		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
 	<extension point="xbmc.python.script" library="default.py">
 		<provides>executable</provides>
@@ -19,5 +19,9 @@
 		<website></website>
 		<email>birger.jesch@gmail.com</email>
 		<source>https://github.com/b-jesch/script.loungeripper.git</source>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
 	</extension>
 </addon>

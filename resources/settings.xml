@@ -1,93 +1,1748 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-	<category label="30060"> <!-- System Defaults -->
-		<setting label="30016" type="executable" id="makemkvcon" />
-		<setting label="30017" type="executable" id="HandBrakeCLI" />
-		<setting label="30020" type="folder" id="tempfolder" option="writable" />
-		<setting label="30019" type="bool" id="deltempfolder" default="false" />
-		<setting label="30021" type="folder" id="basefolder" option="writable" />
-		<setting label="30027" type="bool" id="subfolder" default="true" />
-		<setting label="30065" type="bool" id="updatelib" default="false" />
-		<setting label="30023" type="labelenum" id="nativelanguage" default="English (eng)" values="Arabic (ara)|Bengali (ben)|Chinese (chi)|English (eng)|French (fre)|German (ger)|Hindi (hin)|Italian (ita)|Japanese (jpn)|Panjabi-Punjabi (pan)|Portuguese (por)|Russian (rus)|Spanish-Castilian (spa)|Abkhazian (abk)|Achinese (ace)|Acoli (ach)|Adangme (ada)|Adyghe-Adygei (ady)|Afar (aar)|Afrihili (afh)|Afrikaans (afr)|Afro-Asiatic languages (afa)|Ainu (ain)|Akan (aka)|Akkadian (akk)|Albanian (alb)|Aleut (ale)|Algonquian languages (alg)|Altaic languages (tut)|Amharic (amh)|Angika (anp)|Apache languages (apa)|Aragonese (arg)|Arapaho (arp)|Arawak (arw)|Armenian (arm)|Aromanian-Arumanian-Macedo-Romanian (rup)|Artificial languages (art)|Assamese (asm)|Asturian-Bable-Leonese-Asturleonese (ast)|Athapascan languages (ath)|Australian languages (aus)|Austronesian languages (map)|Avaric (ava)|Avestan (ave)|Awadhi (awa)|Aymara (aym)|Azerbaijani (aze)|Balinese (ban)|Baltic languages (bat)|Baluchi (bal)|Bambara (bam)|Bamileke languages (bai)|Banda languages (bad)|Bantu languages (bnt)|Basa (bas)|Bashkir (bak)|Basque (baq)|Batak languages (btk)|Beja-Bedawiyet (bej)|Belarusian (bel)|Bemba (bem)|Berber languages (ber)|Bhojpuri (bho)|Bihari languages (bih)|Bikol (bik)|Bini-Edo (bin)|Bislama (bis)|Blin-Bilin (byn)|Blissymbols-Blissymbolics-Bliss (zbl)|Bokmal, Norwegian-Norwegian Bokmal (nob)|Bosnian (bos)|Braj (bra)|Breton (bre)|Buginese (bug)|Bulgarian (bul)|Buriat (bua)|Burmese (bur)|Caddo (cad)|Catalan-Valencian (cat)|Caucasian languages (cau)|Cebuano (ceb)|Celtic languages (cel)|Central American Indian languages (cai)|Central Khmer (khm)|Chagatai (chg)|Chamic languages (cmc)|Chamorro (cha)|Chechen (che)|Cherokee (chr)|Cheyenne (chy)|Chibcha (chb)|Chichewa-Chewa-Nyanja (nya)|Chinook jargon (chn)|Chipewyan-Dene Suline (chp)|Choctaw (cho)|Church Slavic-Old Slavonic-Church Slavonic-Old Bulgarian-Old Church Slavonic (chu)|Chuukese (chk)|Chuvash (chv)|Classical Newari-Old Newari-Classical Nepal Bhasa (nwc)|Classical Syriac (syc)|Coptic (cop)|Cornish (cor)|Corsican (cos)|Cree (cre)|Creek (mus)|Creoles and pidgins (crp)|Creoles and pidgins, English based (cpe)|Creoles and pidgins, French-based (cpf)|Creoles and pidgins, Portuguese-based (cpp)|Crimean Tatar-Crimean Turkish (crh)|Croatian (hrv)|Cushitic languages (cus)|Czech (cze)|Dakota (dak)|Danish (dan)|Dargwa (dar)|Delaware (del)|Dinka (din)|Divehi-Dhivehi-Maldivian (div)|Dogri (doi)|Dogrib (dgr)|Dravidian languages (dra)|Duala (dua)|Dutch-Flemish (dut)|Dutch, Middle (dum)|Dyula (dyu)|Dzongkha (dzo)|Eastern Frisian (frs)|Efik (efi)|Egyptian (egy)|Ekajuk (eka)|Elamite (elx)|English, Middle (enm)|English, Old (ang)|Erzya (myv)|Esperanto (epo)|Estonian (est)|Ewe (ewe)|Ewondo (ewo)|Fang (fan)|Fanti (fat)|Faroese (fao)|Fijian (fij)|Filipino-Pilipino (fil)|Finnish (fin)|Finno-Ugrian languages (fiu)|Fon (fon)|French, Middle (frm)|French, Old (fro)|Friulian (fur)|Fulah (ful)|Ga (gaa)|Gaelic-Scottish Gaelic (gla)|Galibi Carib (car)|Galician (glg)|Ganda (lug)|Gayo (gay)|Gbaya (gba)|Geez (gez)|Georgian (geo)|German, Middle High (gmh)|German, Old High (goh)|Germanic languages (gem)|Gilbertese (gil)|Gondi (gon)|Gorontalo (gor)|Gothic (got)|Grebo (grb)|Greek (gre)|Greek, Ancient (grc)|Guarani (grn)|Gujarati (guj)|Gwich'in (gwi)|Haida (hai)|Haitian-Haitian Creole (hat)|Hausa (hau)|Hawaiian (haw)|Hebrew (heb)|Herero (her)|Hiligaynon (hil)|Himachali languages-Western Pahari languages (him)|Hiri Motu (hmo)|Hittite (hit)|Hmong-Mong (hmn)|Hungarian (hun)|Hupa (hup)|Iban (iba)|Icelandic (ice)|Ido (ido)|Igbo (ibo)|Ijo languages (ijo)|Iloko (ilo)|Inari Sami (smn)|Indic languages (inc)|Indo-European languages (ine)|Indonesian (ind)|Ingush (inh)|Interlingua (ina)|Interlingue-Occidental (ile)|Inuktitut (iku)|Inupiaq (ipk)|Iranian languages (ira)|Irish (gle)|Irish, Middle (mga)|Irish, Old (sga)|Iroquoian languages (iro)|Javanese (jav)|Judeo-Arabic (jrb)|Judeo-Persian (jpr)|Kabardian (kbd)|Kabyle (kab)|Kachin-Jingpho (kac)|Kalaallisut-Greenlandic (kal)|Kalmyk-Oirat (xal)|Kamba (kam)|Kannada (kan)|Kanuri (kau)|Kara-Kalpak (kaa)|Karachay-Balkar (krc)|Karelian (krl)|Karen languages (kar)|Kashmiri (kas)|Kashubian (csb)|Kawi (kaw)|Kazakh (kaz)|Khasi (kha)|Khoisan languages (khi)|Khotanese-Sakan (kho)|Kikuyu-Gikuyu (kik)|Kimbundu (kmb)|Kinyarwanda (kin)|Kirghiz-Kyrgyz (kir)|Klingon-tlhIngan-Hol (tlh)|Komi (kom)|Kongo (kon)|Konkani (kok)|Korean (kor)|Kosraean (kos)|Kpelle (kpe)|Kru languages (kro)|Kuanyama-Kwanyama (kua)|Kumyk (kum)|Kurdish (kur)|Kurukh (kru)|Kutenai (kut)|Ladino (lad)|Lahnda (lah)|Lamba (lam)|Land Dayak languages (day)|Lao (lao)|Latin (lat)|Latvian (lav)|Lezghian (lez)|Limburgan-Limburger-Limburgish (lim)|Lingala (lin)|Lithuanian (lit)|Lojban (jbo)|Low German-Low Saxon-German, Low-Saxon, Low (nds)|Lower Sorbian (dsb)|Lozi (loz)|Luba-Katanga (lub)|Luba-Lulua (lua)|Luiseno (lui)|Lule Sami (smj)|Lunda (lun)|Luo (luo)|Lushai (lus)|Luxembourgish-Letzeburgesch (ltz)|Macedonian (mac)|Madurese (mad)|Magahi (mag)|Maithili (mai)|Makasar (mak)|Malagasy (mlg)|Malay (may)|Malayalam (mal)|Maltese (mlt)|Manchu (mnc)|Mandar (mdr)|Mandingo (man)|Manipuri (mni)|Manobo languages (mno)|Manx (glv)|Maori (mao)|Mapudungun-Mapuche (arn)|Marathi (mar)|Mari (chm)|Marshallese (mah)|Marwari (mwr)|Masai (mas)|Mayan languages (myn)|Mende (men)|Mi'kmaq-Micmac (mic)|Minangkabau (min)|Mirandese (mwl)|Mohawk (moh)|Moksha (mdf)|Mon-Khmer languages (mkh)|Mongo (lol)|Mongolian (mon)|Mossi (mos)|Multiple languages (mul)|Munda languages (mun)|N'Ko (nqo)|Nahuatl languages (nah)|Nauru (nau)|Navajo-Navaho (nav)|Ndebele, North-North Ndebele (nde)|Ndebele, South-South Ndebele (nbl)|Ndonga (ndo)|Neapolitan (nap)|Nepal Bhasa-Newari (new)|Nepali (nep)|Nias (nia)|Niger-Kordofanian languages (nic)|Nilo-Saharan languages (ssa)|Niuean (niu)|No linguistic content-Not applicable (zxx)|Nogai (nog)|Norse, Old (non)|North American Indian languages (nai)|Northern Frisian (frr)|Northern Sami (sme)|Norwegian (nor)|Norwegian Nynorsk-Nynorsk, Norwegian (nno)|Nubian languages (nub)|Nyamwezi (nym)|Nyankole (nyn)|Nyoro (nyo)|Nzima (nzi)|Occitan (oci)|Official Aramaic (arc)|Ojibwa (oji)|Oriya (ori)|Oromo (orm)|Osage (osa)|Ossetian-Ossetic (oss)|Otomian languages (oto)|Pahlavi (pal)|Palauan (pau)|Pali (pli)|Pampanga-Kapampangan (pam)|Pangasinan (pag)|Papiamento (pap)|Papuan languages (paa)|Pedi-Sepedi-Northern Sotho (nso)|Persian (per)|Persian, Old (peo)|Philippine languages (phi)|Phoenician (phn)|Pohnpeian (pon)|Polish (pol)|Prakrit languages (pra)|Provencal, Old (pro)|Pushto-Pashto (pus)|Quechua (que)|Rajasthani (raj)|Rapanui (rap)|Rarotongan-Cook Islands Maori (rar)|Reserved for local use (qaa-qtz)|Romance languages (roa)|Romanian (rum)|Romansh (roh)|Romany (rom)|Rundi (run)|Salishan languages (sal)|Samaritan Aramaic (sam)|Sami languages (smi)|Samoan (smo)|Sandawe (sad)|Sango (sag)|Sanskrit (san)|Santali (sat)|Sardinian (srd)|Sasak (sas)|Scots (sco)|Selkup (sel)|Semitic languages (sem)|Serbian (srp)|Serer (srr)|Shan (shn)|Shona (sna)|Sichuan Yi-Nuosu (iii)|Sicilian (scn)|Sidamo (sid)|Sign Languages (sgn)|Siksika (bla)|Sindhi (snd)|Sinhala-Sinhalese (sin)|Sino-Tibetan languages (sit)|Siouan languages (sio)|Skolt Sami (sms)|Slave (den)|Slavic languages (sla)|Slovak (slo)|Slovenian (slv)|Sogdian (sog)|Somali (som)|Songhai languages (son)|Soninke (snk)|Sorbian languages (wen)|Sotho, Southern (sot)|South American Indian languages (sai)|Southern Altai (alt)|Southern Sami (sma)|Sranan Tongo (srn)|Standard Moroccan Tamazight (zgh)|Sukuma (suk)|Sumerian (sux)|Sundanese (sun)|Susu (sus)|Swahili (swa)|Swati (ssw)|Swedish (swe)|Swiss German-Alemannic-Alsatian (gsw)|Syriac (syr)|Tagalog (tgl)|Tahitian (tah)|Tai languages (tai)|Tajik (tgk)|Tamashek (tmh)|Tamil (tam)|Tatar (tat)|Telugu (tel)|Tereno (ter)|Tetum (tet)|Thai (tha)|Tibetan (tib)|Tigre (tig)|Tigrinya (tir)|Timne (tem)|Tiv (tiv)|Tlingit (tli)|Tok Pisin (tpi)|Tokelau (tkl)|Tonga-Nyasa (tog)|Tonga-Tonga Islands (ton)|Tsimshian (tsi)|Tsonga (tso)|Tswana (tsn)|Tumbuka (tum)|Tupi languages (tup)|Turkish (tur)|Turkish, Ottoman (ota)|Turkmen (tuk)|Tuvalu (tvl)|Tuvinian (tyv)|Twi (twi)|Udmurt (udm)|Ugaritic (uga)|Uighur-Uyghur (uig)|Ukrainian (ukr)|Umbundu (umb)|Uncoded languages (mis)|Undetermined (und)|Upper Sorbian (hsb)|Urdu (urd)|Uzbek (uzb)|Vai (vai)|Venda (ven)|Vietnamese (vie)|Volapuk (vol)|Votic (vot)|Wakashan languages (wak)|Walloon (wln)|Waray (war)|Washo (was)|Welsh (wel)|Western Frisian (fry)|Wolaitta-Wolaytta (wal)|Wolof (wol)|Xhosa (xho)|Yakut (sah)|Yao (yao)|Yapese (yap)|Yiddish (yid)|Yoruba (yor)|Yupik languages (ypk)|Zande languages (znd)|Zapotec (zap)|Zaza-Dimili-Dimli-Kirdki-Kirmanjki-Zazaki (zza)|Zenaga (zen)|Zhuang-Chuang (zha)|Zulu (zul)|Zuni (zun)|" />
-		<setting type="sep" />
-		<setting label="30026" type="bool" id="eject" default="true" />
-		<setting label="30068" type="number" id="driveid" default="0" />
-	</category>
-	<category label="30031"> <!-- User Defined Profiles -->
-		<setting label="30047" type="text" id="p1_profilename" default="Profile 1" />
-		<setting label="30048" type="bool" id="p1_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p1_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p1_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p1_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p1_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p1_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p1_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p1_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>
-	<category label="30032">
-		<setting label="30047" type="text" id="p2_profilename" default="Profile 2" />
-		<setting label="30048" type="bool" id="p2_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p2_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p2_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p2_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p2_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p2_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p2_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p2_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>
-	<category label="30033">
-	<setting label="30047" type="text" id="p3_profilename" default="Profile 3" />
-		<setting label="30048" type="bool" id="p3_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p3_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p3_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p3_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p3_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p3_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p3_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p3_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>
-	<category label="30034">
-		<setting label="30047" type="text" id="p4_profilename" default="Profile 4" />
-		<setting label="30048" type="bool" id="p4_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p4_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p4_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p4_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p4_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p4_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p4_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p4_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>
-	<category label="30035">
-		<setting label="30047" type="text" id="p5_profilename" default="Profile 5" />
-		<setting label="30048" type="bool" id="p5_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p5_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p5_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p5_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p5_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p5_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p5_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p5_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>
-	<category label="30036">
-		<setting label="30047" type="text" id="p6_profilename" default="Profile 6" />
-		<setting label="30048" type="bool" id="p6_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p6_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p6_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p6_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p6_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p6_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p6_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p6_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>  
-	<category label="30037">
-		<setting label="30047" type="text" id="p7_profilename" default="Profile 7" />
-		<setting label="30048" type="bool" id="p7_enabled" default="false" />
-		<setting label="30022" type="labelenum" id="p7_mintitlelength" default="30076" lvalues="30070|30071|30072|30073|30074|30075|30076|30077|30078|30079" enable="eq(-1,true) + !eq(1,2)" />
-		<setting label="30061" type="enum" id="p7_mode" lvalues="30080|30081|30082" default="0" enable="eq(-2,true)" />
-		<setting label="30011" type="enum" id="p7_resolution" lvalues="30042|30043|30044|30045" default="0" enable="eq(-3,true) + !eq(-1,0)" />
-		<setting label="30012" type="enum" id="p7_quality" lvalues="30085|30086|30087|30088|30089" default="0" enable="eq(-4,true) + !eq(-2,0)" />
-		<setting label="30024" type="bool" id="p7_foreignaudio" default="false" enable="eq(-5,true) + !eq(-3,0)" />
-		<setting label="30028" type="bool" id="p7_blackandwhite" default="30041" enable="eq(-6,true) + !eq(-4,0)" />
-		<setting label="30064" type="text" id="p7_additionalhandbrakeargs" visible="eq(-7,true) + !eq(-5,0)" default="" />
-	</category>    
+<?xml version="1.0" ?>
+<settings version="1">
+	<section id="script.loungeripper">
+		<category id="systemsettings" label="30060" help="">
+			<group id="1">
+				<setting id="makemkvcon" type="path" label="30016" help="30116">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>false</writable>
+						<masking>executable</masking>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="file">
+						<heading>30016</heading>
+					</control>
+				</setting>
+				<setting id="HandBrakeCLI" type="path" label="30017" help="30117">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>false</writable>
+						<masking>executable</masking>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="file">
+						<heading>30017</heading>
+					</control>
+				</setting>
+				<setting id="tempfolder" type="path" label="30020" help="30120">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30020</heading>
+					</control>
+				</setting>
+				<setting id="deltempfolder" type="boolean" label="30019" help="30119">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+				</setting>
+				<setting id="subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="updatelib" type="boolean" label="30065" help="30165">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="nativelanguage" type="string" label="30023" help="30123">
+					<level>0</level>
+					<default>English (eng)</default>
+					<constraints>
+						<options>
+							<option label="Arabic (ara)">Arabic (ara)</option>
+							<option label="Bengali (ben)">Bengali (ben)</option>
+							<option label="Chinese (chi)">Chinese (chi)</option>
+							<option label="English (eng)">English (eng)</option>
+							<option label="French (fre)">French (fre)</option>
+							<option label="German (ger)">German (ger)</option>
+							<option label="Hindi (hin)">Hindi (hin)</option>
+							<option label="Italian (ita)">Italian (ita)</option>
+							<option label="Japanese (jpn)">Japanese (jpn)</option>
+							<option label="Panjabi-Punjabi (pan)">Panjabi-Punjabi (pan)</option>
+							<option label="Portuguese (por)">Portuguese (por)</option>
+							<option label="Russian (rus)">Russian (rus)</option>
+							<option label="Spanish-Castilian (spa)">Spanish-Castilian (spa)</option>
+							<option label="Abkhazian (abk)">Abkhazian (abk)</option>
+							<option label="Achinese (ace)">Achinese (ace)</option>
+							<option label="Acoli (ach)">Acoli (ach)</option>
+							<option label="Adangme (ada)">Adangme (ada)</option>
+							<option label="Adyghe-Adygei (ady)">Adyghe-Adygei (ady)</option>
+							<option label="Afar (aar)">Afar (aar)</option>
+							<option label="Afrihili (afh)">Afrihili (afh)</option>
+							<option label="Afrikaans (afr)">Afrikaans (afr)</option>
+							<option label="Afro-Asiatic languages (afa)">Afro-Asiatic languages (afa)</option>
+							<option label="Ainu (ain)">Ainu (ain)</option>
+							<option label="Akan (aka)">Akan (aka)</option>
+							<option label="Akkadian (akk)">Akkadian (akk)</option>
+							<option label="Albanian (alb)">Albanian (alb)</option>
+							<option label="Aleut (ale)">Aleut (ale)</option>
+							<option label="Algonquian languages (alg)">Algonquian languages (alg)</option>
+							<option label="Altaic languages (tut)">Altaic languages (tut)</option>
+							<option label="Amharic (amh)">Amharic (amh)</option>
+							<option label="Angika (anp)">Angika (anp)</option>
+							<option label="Apache languages (apa)">Apache languages (apa)</option>
+							<option label="Aragonese (arg)">Aragonese (arg)</option>
+							<option label="Arapaho (arp)">Arapaho (arp)</option>
+							<option label="Arawak (arw)">Arawak (arw)</option>
+							<option label="Armenian (arm)">Armenian (arm)</option>
+							<option label="Aromanian-Arumanian-Macedo-Romanian (rup)">Aromanian-Arumanian-Macedo-Romanian (rup)</option>
+							<option label="Artificial languages (art)">Artificial languages (art)</option>
+							<option label="Assamese (asm)">Assamese (asm)</option>
+							<option label="Asturian-Bable-Leonese-Asturleonese (ast)">Asturian-Bable-Leonese-Asturleonese (ast)</option>
+							<option label="Athapascan languages (ath)">Athapascan languages (ath)</option>
+							<option label="Australian languages (aus)">Australian languages (aus)</option>
+							<option label="Austronesian languages (map)">Austronesian languages (map)</option>
+							<option label="Avaric (ava)">Avaric (ava)</option>
+							<option label="Avestan (ave)">Avestan (ave)</option>
+							<option label="Awadhi (awa)">Awadhi (awa)</option>
+							<option label="Aymara (aym)">Aymara (aym)</option>
+							<option label="Azerbaijani (aze)">Azerbaijani (aze)</option>
+							<option label="Balinese (ban)">Balinese (ban)</option>
+							<option label="Baltic languages (bat)">Baltic languages (bat)</option>
+							<option label="Baluchi (bal)">Baluchi (bal)</option>
+							<option label="Bambara (bam)">Bambara (bam)</option>
+							<option label="Bamileke languages (bai)">Bamileke languages (bai)</option>
+							<option label="Banda languages (bad)">Banda languages (bad)</option>
+							<option label="Bantu languages (bnt)">Bantu languages (bnt)</option>
+							<option label="Basa (bas)">Basa (bas)</option>
+							<option label="Bashkir (bak)">Bashkir (bak)</option>
+							<option label="Basque (baq)">Basque (baq)</option>
+							<option label="Batak languages (btk)">Batak languages (btk)</option>
+							<option label="Beja-Bedawiyet (bej)">Beja-Bedawiyet (bej)</option>
+							<option label="Belarusian (bel)">Belarusian (bel)</option>
+							<option label="Bemba (bem)">Bemba (bem)</option>
+							<option label="Berber languages (ber)">Berber languages (ber)</option>
+							<option label="Bhojpuri (bho)">Bhojpuri (bho)</option>
+							<option label="Bihari languages (bih)">Bihari languages (bih)</option>
+							<option label="Bikol (bik)">Bikol (bik)</option>
+							<option label="Bini-Edo (bin)">Bini-Edo (bin)</option>
+							<option label="Bislama (bis)">Bislama (bis)</option>
+							<option label="Blin-Bilin (byn)">Blin-Bilin (byn)</option>
+							<option label="Blissymbols-Blissymbolics-Bliss (zbl)">Blissymbols-Blissymbolics-Bliss (zbl)</option>
+							<option label="Bokmal, Norwegian-Norwegian Bokmal (nob)">Bokmal, Norwegian-Norwegian Bokmal (nob)</option>
+							<option label="Bosnian (bos)">Bosnian (bos)</option>
+							<option label="Braj (bra)">Braj (bra)</option>
+							<option label="Breton (bre)">Breton (bre)</option>
+							<option label="Buginese (bug)">Buginese (bug)</option>
+							<option label="Bulgarian (bul)">Bulgarian (bul)</option>
+							<option label="Buriat (bua)">Buriat (bua)</option>
+							<option label="Burmese (bur)">Burmese (bur)</option>
+							<option label="Caddo (cad)">Caddo (cad)</option>
+							<option label="Catalan-Valencian (cat)">Catalan-Valencian (cat)</option>
+							<option label="Caucasian languages (cau)">Caucasian languages (cau)</option>
+							<option label="Cebuano (ceb)">Cebuano (ceb)</option>
+							<option label="Celtic languages (cel)">Celtic languages (cel)</option>
+							<option label="Central American Indian languages (cai)">Central American Indian languages (cai)</option>
+							<option label="Central Khmer (khm)">Central Khmer (khm)</option>
+							<option label="Chagatai (chg)">Chagatai (chg)</option>
+							<option label="Chamic languages (cmc)">Chamic languages (cmc)</option>
+							<option label="Chamorro (cha)">Chamorro (cha)</option>
+							<option label="Chechen (che)">Chechen (che)</option>
+							<option label="Cherokee (chr)">Cherokee (chr)</option>
+							<option label="Cheyenne (chy)">Cheyenne (chy)</option>
+							<option label="Chibcha (chb)">Chibcha (chb)</option>
+							<option label="Chichewa-Chewa-Nyanja (nya)">Chichewa-Chewa-Nyanja (nya)</option>
+							<option label="Chinook jargon (chn)">Chinook jargon (chn)</option>
+							<option label="Chipewyan-Dene Suline (chp)">Chipewyan-Dene Suline (chp)</option>
+							<option label="Choctaw (cho)">Choctaw (cho)</option>
+							<option label="Church Slavic-Old Slavonic-Church Slavonic-Old Bulgarian-Old Church Slavonic (chu)">Church Slavic-Old Slavonic-Church Slavonic-Old Bulgarian-Old Church Slavonic (chu)</option>
+							<option label="Chuukese (chk)">Chuukese (chk)</option>
+							<option label="Chuvash (chv)">Chuvash (chv)</option>
+							<option label="Classical Newari-Old Newari-Classical Nepal Bhasa (nwc)">Classical Newari-Old Newari-Classical Nepal Bhasa (nwc)</option>
+							<option label="Classical Syriac (syc)">Classical Syriac (syc)</option>
+							<option label="Coptic (cop)">Coptic (cop)</option>
+							<option label="Cornish (cor)">Cornish (cor)</option>
+							<option label="Corsican (cos)">Corsican (cos)</option>
+							<option label="Cree (cre)">Cree (cre)</option>
+							<option label="Creek (mus)">Creek (mus)</option>
+							<option label="Creoles and pidgins (crp)">Creoles and pidgins (crp)</option>
+							<option label="Creoles and pidgins, English based (cpe)">Creoles and pidgins, English based (cpe)</option>
+							<option label="Creoles and pidgins, French-based (cpf)">Creoles and pidgins, French-based (cpf)</option>
+							<option label="Creoles and pidgins, Portuguese-based (cpp)">Creoles and pidgins, Portuguese-based (cpp)</option>
+							<option label="Crimean Tatar-Crimean Turkish (crh)">Crimean Tatar-Crimean Turkish (crh)</option>
+							<option label="Croatian (hrv)">Croatian (hrv)</option>
+							<option label="Cushitic languages (cus)">Cushitic languages (cus)</option>
+							<option label="Czech (cze)">Czech (cze)</option>
+							<option label="Dakota (dak)">Dakota (dak)</option>
+							<option label="Danish (dan)">Danish (dan)</option>
+							<option label="Dargwa (dar)">Dargwa (dar)</option>
+							<option label="Delaware (del)">Delaware (del)</option>
+							<option label="Dinka (din)">Dinka (din)</option>
+							<option label="Divehi-Dhivehi-Maldivian (div)">Divehi-Dhivehi-Maldivian (div)</option>
+							<option label="Dogri (doi)">Dogri (doi)</option>
+							<option label="Dogrib (dgr)">Dogrib (dgr)</option>
+							<option label="Dravidian languages (dra)">Dravidian languages (dra)</option>
+							<option label="Duala (dua)">Duala (dua)</option>
+							<option label="Dutch-Flemish (dut)">Dutch-Flemish (dut)</option>
+							<option label="Dutch, Middle (dum)">Dutch, Middle (dum)</option>
+							<option label="Dyula (dyu)">Dyula (dyu)</option>
+							<option label="Dzongkha (dzo)">Dzongkha (dzo)</option>
+							<option label="Eastern Frisian (frs)">Eastern Frisian (frs)</option>
+							<option label="Efik (efi)">Efik (efi)</option>
+							<option label="Egyptian (egy)">Egyptian (egy)</option>
+							<option label="Ekajuk (eka)">Ekajuk (eka)</option>
+							<option label="Elamite (elx)">Elamite (elx)</option>
+							<option label="English, Middle (enm)">English, Middle (enm)</option>
+							<option label="English, Old (ang)">English, Old (ang)</option>
+							<option label="Erzya (myv)">Erzya (myv)</option>
+							<option label="Esperanto (epo)">Esperanto (epo)</option>
+							<option label="Estonian (est)">Estonian (est)</option>
+							<option label="Ewe (ewe)">Ewe (ewe)</option>
+							<option label="Ewondo (ewo)">Ewondo (ewo)</option>
+							<option label="Fang (fan)">Fang (fan)</option>
+							<option label="Fanti (fat)">Fanti (fat)</option>
+							<option label="Faroese (fao)">Faroese (fao)</option>
+							<option label="Fijian (fij)">Fijian (fij)</option>
+							<option label="Filipino-Pilipino (fil)">Filipino-Pilipino (fil)</option>
+							<option label="Finnish (fin)">Finnish (fin)</option>
+							<option label="Finno-Ugrian languages (fiu)">Finno-Ugrian languages (fiu)</option>
+							<option label="Fon (fon)">Fon (fon)</option>
+							<option label="French, Middle (frm)">French, Middle (frm)</option>
+							<option label="French, Old (fro)">French, Old (fro)</option>
+							<option label="Friulian (fur)">Friulian (fur)</option>
+							<option label="Fulah (ful)">Fulah (ful)</option>
+							<option label="Ga (gaa)">Ga (gaa)</option>
+							<option label="Gaelic-Scottish Gaelic (gla)">Gaelic-Scottish Gaelic (gla)</option>
+							<option label="Galibi Carib (car)">Galibi Carib (car)</option>
+							<option label="Galician (glg)">Galician (glg)</option>
+							<option label="Ganda (lug)">Ganda (lug)</option>
+							<option label="Gayo (gay)">Gayo (gay)</option>
+							<option label="Gbaya (gba)">Gbaya (gba)</option>
+							<option label="Geez (gez)">Geez (gez)</option>
+							<option label="Georgian (geo)">Georgian (geo)</option>
+							<option label="German, Middle High (gmh)">German, Middle High (gmh)</option>
+							<option label="German, Old High (goh)">German, Old High (goh)</option>
+							<option label="Germanic languages (gem)">Germanic languages (gem)</option>
+							<option label="Gilbertese (gil)">Gilbertese (gil)</option>
+							<option label="Gondi (gon)">Gondi (gon)</option>
+							<option label="Gorontalo (gor)">Gorontalo (gor)</option>
+							<option label="Gothic (got)">Gothic (got)</option>
+							<option label="Grebo (grb)">Grebo (grb)</option>
+							<option label="Greek (gre)">Greek (gre)</option>
+							<option label="Greek, Ancient (grc)">Greek, Ancient (grc)</option>
+							<option label="Guarani (grn)">Guarani (grn)</option>
+							<option label="Gujarati (guj)">Gujarati (guj)</option>
+							<option label="Gwich'in (gwi)">Gwich'in (gwi)</option>
+							<option label="Haida (hai)">Haida (hai)</option>
+							<option label="Haitian-Haitian Creole (hat)">Haitian-Haitian Creole (hat)</option>
+							<option label="Hausa (hau)">Hausa (hau)</option>
+							<option label="Hawaiian (haw)">Hawaiian (haw)</option>
+							<option label="Hebrew (heb)">Hebrew (heb)</option>
+							<option label="Herero (her)">Herero (her)</option>
+							<option label="Hiligaynon (hil)">Hiligaynon (hil)</option>
+							<option label="Himachali languages-Western Pahari languages (him)">Himachali languages-Western Pahari languages (him)</option>
+							<option label="Hiri Motu (hmo)">Hiri Motu (hmo)</option>
+							<option label="Hittite (hit)">Hittite (hit)</option>
+							<option label="Hmong-Mong (hmn)">Hmong-Mong (hmn)</option>
+							<option label="Hungarian (hun)">Hungarian (hun)</option>
+							<option label="Hupa (hup)">Hupa (hup)</option>
+							<option label="Iban (iba)">Iban (iba)</option>
+							<option label="Icelandic (ice)">Icelandic (ice)</option>
+							<option label="Ido (ido)">Ido (ido)</option>
+							<option label="Igbo (ibo)">Igbo (ibo)</option>
+							<option label="Ijo languages (ijo)">Ijo languages (ijo)</option>
+							<option label="Iloko (ilo)">Iloko (ilo)</option>
+							<option label="Inari Sami (smn)">Inari Sami (smn)</option>
+							<option label="Indic languages (inc)">Indic languages (inc)</option>
+							<option label="Indo-European languages (ine)">Indo-European languages (ine)</option>
+							<option label="Indonesian (ind)">Indonesian (ind)</option>
+							<option label="Ingush (inh)">Ingush (inh)</option>
+							<option label="Interlingua (ina)">Interlingua (ina)</option>
+							<option label="Interlingue-Occidental (ile)">Interlingue-Occidental (ile)</option>
+							<option label="Inuktitut (iku)">Inuktitut (iku)</option>
+							<option label="Inupiaq (ipk)">Inupiaq (ipk)</option>
+							<option label="Iranian languages (ira)">Iranian languages (ira)</option>
+							<option label="Irish (gle)">Irish (gle)</option>
+							<option label="Irish, Middle (mga)">Irish, Middle (mga)</option>
+							<option label="Irish, Old (sga)">Irish, Old (sga)</option>
+							<option label="Iroquoian languages (iro)">Iroquoian languages (iro)</option>
+							<option label="Javanese (jav)">Javanese (jav)</option>
+							<option label="Judeo-Arabic (jrb)">Judeo-Arabic (jrb)</option>
+							<option label="Judeo-Persian (jpr)">Judeo-Persian (jpr)</option>
+							<option label="Kabardian (kbd)">Kabardian (kbd)</option>
+							<option label="Kabyle (kab)">Kabyle (kab)</option>
+							<option label="Kachin-Jingpho (kac)">Kachin-Jingpho (kac)</option>
+							<option label="Kalaallisut-Greenlandic (kal)">Kalaallisut-Greenlandic (kal)</option>
+							<option label="Kalmyk-Oirat (xal)">Kalmyk-Oirat (xal)</option>
+							<option label="Kamba (kam)">Kamba (kam)</option>
+							<option label="Kannada (kan)">Kannada (kan)</option>
+							<option label="Kanuri (kau)">Kanuri (kau)</option>
+							<option label="Kara-Kalpak (kaa)">Kara-Kalpak (kaa)</option>
+							<option label="Karachay-Balkar (krc)">Karachay-Balkar (krc)</option>
+							<option label="Karelian (krl)">Karelian (krl)</option>
+							<option label="Karen languages (kar)">Karen languages (kar)</option>
+							<option label="Kashmiri (kas)">Kashmiri (kas)</option>
+							<option label="Kashubian (csb)">Kashubian (csb)</option>
+							<option label="Kawi (kaw)">Kawi (kaw)</option>
+							<option label="Kazakh (kaz)">Kazakh (kaz)</option>
+							<option label="Khasi (kha)">Khasi (kha)</option>
+							<option label="Khoisan languages (khi)">Khoisan languages (khi)</option>
+							<option label="Khotanese-Sakan (kho)">Khotanese-Sakan (kho)</option>
+							<option label="Kikuyu-Gikuyu (kik)">Kikuyu-Gikuyu (kik)</option>
+							<option label="Kimbundu (kmb)">Kimbundu (kmb)</option>
+							<option label="Kinyarwanda (kin)">Kinyarwanda (kin)</option>
+							<option label="Kirghiz-Kyrgyz (kir)">Kirghiz-Kyrgyz (kir)</option>
+							<option label="Klingon-tlhIngan-Hol (tlh)">Klingon-tlhIngan-Hol (tlh)</option>
+							<option label="Komi (kom)">Komi (kom)</option>
+							<option label="Kongo (kon)">Kongo (kon)</option>
+							<option label="Konkani (kok)">Konkani (kok)</option>
+							<option label="Korean (kor)">Korean (kor)</option>
+							<option label="Kosraean (kos)">Kosraean (kos)</option>
+							<option label="Kpelle (kpe)">Kpelle (kpe)</option>
+							<option label="Kru languages (kro)">Kru languages (kro)</option>
+							<option label="Kuanyama-Kwanyama (kua)">Kuanyama-Kwanyama (kua)</option>
+							<option label="Kumyk (kum)">Kumyk (kum)</option>
+							<option label="Kurdish (kur)">Kurdish (kur)</option>
+							<option label="Kurukh (kru)">Kurukh (kru)</option>
+							<option label="Kutenai (kut)">Kutenai (kut)</option>
+							<option label="Ladino (lad)">Ladino (lad)</option>
+							<option label="Lahnda (lah)">Lahnda (lah)</option>
+							<option label="Lamba (lam)">Lamba (lam)</option>
+							<option label="Land Dayak languages (day)">Land Dayak languages (day)</option>
+							<option label="Lao (lao)">Lao (lao)</option>
+							<option label="Latin (lat)">Latin (lat)</option>
+							<option label="Latvian (lav)">Latvian (lav)</option>
+							<option label="Lezghian (lez)">Lezghian (lez)</option>
+							<option label="Limburgan-Limburger-Limburgish (lim)">Limburgan-Limburger-Limburgish (lim)</option>
+							<option label="Lingala (lin)">Lingala (lin)</option>
+							<option label="Lithuanian (lit)">Lithuanian (lit)</option>
+							<option label="Lojban (jbo)">Lojban (jbo)</option>
+							<option label="Low German-Low Saxon-German, Low-Saxon, Low (nds)">Low German-Low Saxon-German, Low-Saxon, Low (nds)</option>
+							<option label="Lower Sorbian (dsb)">Lower Sorbian (dsb)</option>
+							<option label="Lozi (loz)">Lozi (loz)</option>
+							<option label="Luba-Katanga (lub)">Luba-Katanga (lub)</option>
+							<option label="Luba-Lulua (lua)">Luba-Lulua (lua)</option>
+							<option label="Luiseno (lui)">Luiseno (lui)</option>
+							<option label="Lule Sami (smj)">Lule Sami (smj)</option>
+							<option label="Lunda (lun)">Lunda (lun)</option>
+							<option label="Luo (luo)">Luo (luo)</option>
+							<option label="Lushai (lus)">Lushai (lus)</option>
+							<option label="Luxembourgish-Letzeburgesch (ltz)">Luxembourgish-Letzeburgesch (ltz)</option>
+							<option label="Macedonian (mac)">Macedonian (mac)</option>
+							<option label="Madurese (mad)">Madurese (mad)</option>
+							<option label="Magahi (mag)">Magahi (mag)</option>
+							<option label="Maithili (mai)">Maithili (mai)</option>
+							<option label="Makasar (mak)">Makasar (mak)</option>
+							<option label="Malagasy (mlg)">Malagasy (mlg)</option>
+							<option label="Malay (may)">Malay (may)</option>
+							<option label="Malayalam (mal)">Malayalam (mal)</option>
+							<option label="Maltese (mlt)">Maltese (mlt)</option>
+							<option label="Manchu (mnc)">Manchu (mnc)</option>
+							<option label="Mandar (mdr)">Mandar (mdr)</option>
+							<option label="Mandingo (man)">Mandingo (man)</option>
+							<option label="Manipuri (mni)">Manipuri (mni)</option>
+							<option label="Manobo languages (mno)">Manobo languages (mno)</option>
+							<option label="Manx (glv)">Manx (glv)</option>
+							<option label="Maori (mao)">Maori (mao)</option>
+							<option label="Mapudungun-Mapuche (arn)">Mapudungun-Mapuche (arn)</option>
+							<option label="Marathi (mar)">Marathi (mar)</option>
+							<option label="Mari (chm)">Mari (chm)</option>
+							<option label="Marshallese (mah)">Marshallese (mah)</option>
+							<option label="Marwari (mwr)">Marwari (mwr)</option>
+							<option label="Masai (mas)">Masai (mas)</option>
+							<option label="Mayan languages (myn)">Mayan languages (myn)</option>
+							<option label="Mende (men)">Mende (men)</option>
+							<option label="Mi'kmaq-Micmac (mic)">Mi'kmaq-Micmac (mic)</option>
+							<option label="Minangkabau (min)">Minangkabau (min)</option>
+							<option label="Mirandese (mwl)">Mirandese (mwl)</option>
+							<option label="Mohawk (moh)">Mohawk (moh)</option>
+							<option label="Moksha (mdf)">Moksha (mdf)</option>
+							<option label="Mon-Khmer languages (mkh)">Mon-Khmer languages (mkh)</option>
+							<option label="Mongo (lol)">Mongo (lol)</option>
+							<option label="Mongolian (mon)">Mongolian (mon)</option>
+							<option label="Mossi (mos)">Mossi (mos)</option>
+							<option label="Multiple languages (mul)">Multiple languages (mul)</option>
+							<option label="Munda languages (mun)">Munda languages (mun)</option>
+							<option label="N'Ko (nqo)">N'Ko (nqo)</option>
+							<option label="Nahuatl languages (nah)">Nahuatl languages (nah)</option>
+							<option label="Nauru (nau)">Nauru (nau)</option>
+							<option label="Navajo-Navaho (nav)">Navajo-Navaho (nav)</option>
+							<option label="Ndebele, North-North Ndebele (nde)">Ndebele, North-North Ndebele (nde)</option>
+							<option label="Ndebele, South-South Ndebele (nbl)">Ndebele, South-South Ndebele (nbl)</option>
+							<option label="Ndonga (ndo)">Ndonga (ndo)</option>
+							<option label="Neapolitan (nap)">Neapolitan (nap)</option>
+							<option label="Nepal Bhasa-Newari (new)">Nepal Bhasa-Newari (new)</option>
+							<option label="Nepali (nep)">Nepali (nep)</option>
+							<option label="Nias (nia)">Nias (nia)</option>
+							<option label="Niger-Kordofanian languages (nic)">Niger-Kordofanian languages (nic)</option>
+							<option label="Nilo-Saharan languages (ssa)">Nilo-Saharan languages (ssa)</option>
+							<option label="Niuean (niu)">Niuean (niu)</option>
+							<option label="No linguistic content-Not applicable (zxx)">No linguistic content-Not applicable (zxx)</option>
+							<option label="Nogai (nog)">Nogai (nog)</option>
+							<option label="Norse, Old (non)">Norse, Old (non)</option>
+							<option label="North American Indian languages (nai)">North American Indian languages (nai)</option>
+							<option label="Northern Frisian (frr)">Northern Frisian (frr)</option>
+							<option label="Northern Sami (sme)">Northern Sami (sme)</option>
+							<option label="Norwegian (nor)">Norwegian (nor)</option>
+							<option label="Norwegian Nynorsk-Nynorsk, Norwegian (nno)">Norwegian Nynorsk-Nynorsk, Norwegian (nno)</option>
+							<option label="Nubian languages (nub)">Nubian languages (nub)</option>
+							<option label="Nyamwezi (nym)">Nyamwezi (nym)</option>
+							<option label="Nyankole (nyn)">Nyankole (nyn)</option>
+							<option label="Nyoro (nyo)">Nyoro (nyo)</option>
+							<option label="Nzima (nzi)">Nzima (nzi)</option>
+							<option label="Occitan (oci)">Occitan (oci)</option>
+							<option label="Official Aramaic (arc)">Official Aramaic (arc)</option>
+							<option label="Ojibwa (oji)">Ojibwa (oji)</option>
+							<option label="Oriya (ori)">Oriya (ori)</option>
+							<option label="Oromo (orm)">Oromo (orm)</option>
+							<option label="Osage (osa)">Osage (osa)</option>
+							<option label="Ossetian-Ossetic (oss)">Ossetian-Ossetic (oss)</option>
+							<option label="Otomian languages (oto)">Otomian languages (oto)</option>
+							<option label="Pahlavi (pal)">Pahlavi (pal)</option>
+							<option label="Palauan (pau)">Palauan (pau)</option>
+							<option label="Pali (pli)">Pali (pli)</option>
+							<option label="Pampanga-Kapampangan (pam)">Pampanga-Kapampangan (pam)</option>
+							<option label="Pangasinan (pag)">Pangasinan (pag)</option>
+							<option label="Papiamento (pap)">Papiamento (pap)</option>
+							<option label="Papuan languages (paa)">Papuan languages (paa)</option>
+							<option label="Pedi-Sepedi-Northern Sotho (nso)">Pedi-Sepedi-Northern Sotho (nso)</option>
+							<option label="Persian (per)">Persian (per)</option>
+							<option label="Persian, Old (peo)">Persian, Old (peo)</option>
+							<option label="Philippine languages (phi)">Philippine languages (phi)</option>
+							<option label="Phoenician (phn)">Phoenician (phn)</option>
+							<option label="Pohnpeian (pon)">Pohnpeian (pon)</option>
+							<option label="Polish (pol)">Polish (pol)</option>
+							<option label="Prakrit languages (pra)">Prakrit languages (pra)</option>
+							<option label="Provencal, Old (pro)">Provencal, Old (pro)</option>
+							<option label="Pushto-Pashto (pus)">Pushto-Pashto (pus)</option>
+							<option label="Quechua (que)">Quechua (que)</option>
+							<option label="Rajasthani (raj)">Rajasthani (raj)</option>
+							<option label="Rapanui (rap)">Rapanui (rap)</option>
+							<option label="Rarotongan-Cook Islands Maori (rar)">Rarotongan-Cook Islands Maori (rar)</option>
+							<option label="Reserved for local use (qaa-qtz)">Reserved for local use (qaa-qtz)</option>
+							<option label="Romance languages (roa)">Romance languages (roa)</option>
+							<option label="Romanian (rum)">Romanian (rum)</option>
+							<option label="Romansh (roh)">Romansh (roh)</option>
+							<option label="Romany (rom)">Romany (rom)</option>
+							<option label="Rundi (run)">Rundi (run)</option>
+							<option label="Salishan languages (sal)">Salishan languages (sal)</option>
+							<option label="Samaritan Aramaic (sam)">Samaritan Aramaic (sam)</option>
+							<option label="Sami languages (smi)">Sami languages (smi)</option>
+							<option label="Samoan (smo)">Samoan (smo)</option>
+							<option label="Sandawe (sad)">Sandawe (sad)</option>
+							<option label="Sango (sag)">Sango (sag)</option>
+							<option label="Sanskrit (san)">Sanskrit (san)</option>
+							<option label="Santali (sat)">Santali (sat)</option>
+							<option label="Sardinian (srd)">Sardinian (srd)</option>
+							<option label="Sasak (sas)">Sasak (sas)</option>
+							<option label="Scots (sco)">Scots (sco)</option>
+							<option label="Selkup (sel)">Selkup (sel)</option>
+							<option label="Semitic languages (sem)">Semitic languages (sem)</option>
+							<option label="Serbian (srp)">Serbian (srp)</option>
+							<option label="Serer (srr)">Serer (srr)</option>
+							<option label="Shan (shn)">Shan (shn)</option>
+							<option label="Shona (sna)">Shona (sna)</option>
+							<option label="Sichuan Yi-Nuosu (iii)">Sichuan Yi-Nuosu (iii)</option>
+							<option label="Sicilian (scn)">Sicilian (scn)</option>
+							<option label="Sidamo (sid)">Sidamo (sid)</option>
+							<option label="Sign Languages (sgn)">Sign Languages (sgn)</option>
+							<option label="Siksika (bla)">Siksika (bla)</option>
+							<option label="Sindhi (snd)">Sindhi (snd)</option>
+							<option label="Sinhala-Sinhalese (sin)">Sinhala-Sinhalese (sin)</option>
+							<option label="Sino-Tibetan languages (sit)">Sino-Tibetan languages (sit)</option>
+							<option label="Siouan languages (sio)">Siouan languages (sio)</option>
+							<option label="Skolt Sami (sms)">Skolt Sami (sms)</option>
+							<option label="Slave (den)">Slave (den)</option>
+							<option label="Slavic languages (sla)">Slavic languages (sla)</option>
+							<option label="Slovak (slo)">Slovak (slo)</option>
+							<option label="Slovenian (slv)">Slovenian (slv)</option>
+							<option label="Sogdian (sog)">Sogdian (sog)</option>
+							<option label="Somali (som)">Somali (som)</option>
+							<option label="Songhai languages (son)">Songhai languages (son)</option>
+							<option label="Soninke (snk)">Soninke (snk)</option>
+							<option label="Sorbian languages (wen)">Sorbian languages (wen)</option>
+							<option label="Sotho, Southern (sot)">Sotho, Southern (sot)</option>
+							<option label="South American Indian languages (sai)">South American Indian languages (sai)</option>
+							<option label="Southern Altai (alt)">Southern Altai (alt)</option>
+							<option label="Southern Sami (sma)">Southern Sami (sma)</option>
+							<option label="Sranan Tongo (srn)">Sranan Tongo (srn)</option>
+							<option label="Standard Moroccan Tamazight (zgh)">Standard Moroccan Tamazight (zgh)</option>
+							<option label="Sukuma (suk)">Sukuma (suk)</option>
+							<option label="Sumerian (sux)">Sumerian (sux)</option>
+							<option label="Sundanese (sun)">Sundanese (sun)</option>
+							<option label="Susu (sus)">Susu (sus)</option>
+							<option label="Swahili (swa)">Swahili (swa)</option>
+							<option label="Swati (ssw)">Swati (ssw)</option>
+							<option label="Swedish (swe)">Swedish (swe)</option>
+							<option label="Swiss German-Alemannic-Alsatian (gsw)">Swiss German-Alemannic-Alsatian (gsw)</option>
+							<option label="Syriac (syr)">Syriac (syr)</option>
+							<option label="Tagalog (tgl)">Tagalog (tgl)</option>
+							<option label="Tahitian (tah)">Tahitian (tah)</option>
+							<option label="Tai languages (tai)">Tai languages (tai)</option>
+							<option label="Tajik (tgk)">Tajik (tgk)</option>
+							<option label="Tamashek (tmh)">Tamashek (tmh)</option>
+							<option label="Tamil (tam)">Tamil (tam)</option>
+							<option label="Tatar (tat)">Tatar (tat)</option>
+							<option label="Telugu (tel)">Telugu (tel)</option>
+							<option label="Tereno (ter)">Tereno (ter)</option>
+							<option label="Tetum (tet)">Tetum (tet)</option>
+							<option label="Thai (tha)">Thai (tha)</option>
+							<option label="Tibetan (tib)">Tibetan (tib)</option>
+							<option label="Tigre (tig)">Tigre (tig)</option>
+							<option label="Tigrinya (tir)">Tigrinya (tir)</option>
+							<option label="Timne (tem)">Timne (tem)</option>
+							<option label="Tiv (tiv)">Tiv (tiv)</option>
+							<option label="Tlingit (tli)">Tlingit (tli)</option>
+							<option label="Tok Pisin (tpi)">Tok Pisin (tpi)</option>
+							<option label="Tokelau (tkl)">Tokelau (tkl)</option>
+							<option label="Tonga-Nyasa (tog)">Tonga-Nyasa (tog)</option>
+							<option label="Tonga-Tonga Islands (ton)">Tonga-Tonga Islands (ton)</option>
+							<option label="Tsimshian (tsi)">Tsimshian (tsi)</option>
+							<option label="Tsonga (tso)">Tsonga (tso)</option>
+							<option label="Tswana (tsn)">Tswana (tsn)</option>
+							<option label="Tumbuka (tum)">Tumbuka (tum)</option>
+							<option label="Tupi languages (tup)">Tupi languages (tup)</option>
+							<option label="Turkish (tur)">Turkish (tur)</option>
+							<option label="Turkish, Ottoman (ota)">Turkish, Ottoman (ota)</option>
+							<option label="Turkmen (tuk)">Turkmen (tuk)</option>
+							<option label="Tuvalu (tvl)">Tuvalu (tvl)</option>
+							<option label="Tuvinian (tyv)">Tuvinian (tyv)</option>
+							<option label="Twi (twi)">Twi (twi)</option>
+							<option label="Udmurt (udm)">Udmurt (udm)</option>
+							<option label="Ugaritic (uga)">Ugaritic (uga)</option>
+							<option label="Uighur-Uyghur (uig)">Uighur-Uyghur (uig)</option>
+							<option label="Ukrainian (ukr)">Ukrainian (ukr)</option>
+							<option label="Umbundu (umb)">Umbundu (umb)</option>
+							<option label="Uncoded languages (mis)">Uncoded languages (mis)</option>
+							<option label="Undetermined (und)">Undetermined (und)</option>
+							<option label="Upper Sorbian (hsb)">Upper Sorbian (hsb)</option>
+							<option label="Urdu (urd)">Urdu (urd)</option>
+							<option label="Uzbek (uzb)">Uzbek (uzb)</option>
+							<option label="Vai (vai)">Vai (vai)</option>
+							<option label="Venda (ven)">Venda (ven)</option>
+							<option label="Vietnamese (vie)">Vietnamese (vie)</option>
+							<option label="Volapuk (vol)">Volapuk (vol)</option>
+							<option label="Votic (vot)">Votic (vot)</option>
+							<option label="Wakashan languages (wak)">Wakashan languages (wak)</option>
+							<option label="Walloon (wln)">Walloon (wln)</option>
+							<option label="Waray (war)">Waray (war)</option>
+							<option label="Washo (was)">Washo (was)</option>
+							<option label="Welsh (wel)">Welsh (wel)</option>
+							<option label="Western Frisian (fry)">Western Frisian (fry)</option>
+							<option label="Wolaitta-Wolaytta (wal)">Wolaitta-Wolaytta (wal)</option>
+							<option label="Wolof (wol)">Wolof (wol)</option>
+							<option label="Xhosa (xho)">Xhosa (xho)</option>
+							<option label="Yakut (sah)">Yakut (sah)</option>
+							<option label="Yao (yao)">Yao (yao)</option>
+							<option label="Yapese (yap)">Yapese (yap)</option>
+							<option label="Yiddish (yid)">Yiddish (yid)</option>
+							<option label="Yoruba (yor)">Yoruba (yor)</option>
+							<option label="Yupik languages (ypk)">Yupik languages (ypk)</option>
+							<option label="Zande languages (znd)">Zande languages (znd)</option>
+							<option label="Zapotec (zap)">Zapotec (zap)</option>
+							<option label="Zaza-Dimili-Dimli-Kirdki-Kirmanjki-Zazaki (zza)">Zaza-Dimili-Dimli-Kirdki-Kirmanjki-Zazaki (zza)</option>
+							<option label="Zenaga (zen)">Zenaga (zen)</option>
+							<option label="Zhuang-Chuang (zha)">Zhuang-Chuang (zha)</option>
+							<option label="Zulu (zul)">Zulu (zul)</option>
+							<option label="Zuni (zun)">Zuni (zun)</option>
+						</options>
+					</constraints>
+					<control type="list" format="string"/>
+				</setting>
+			</group>
+			<group id="2">
+				<setting id="eject" type="boolean" label="30026" help="30126">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="driveid" type="integer" label="30068" help="">
+					<level>0</level>
+					<default>0</default>
+					<control type="edit" format="integer">
+						<heading>30068</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 1" label="30031" help="">
+			<group id="1">
+				<setting id="p1_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 1</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p1_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p1_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p1_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p1_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p1_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p1_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p1_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p1_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p1_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p1_enabled">true</condition>
+								<condition operator="!is" setting="p1_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 2" label="30032" help="">
+			<group id="1">
+				<setting id="p2_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 2</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p2_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p2_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p2_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p2_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p2_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p2_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p2_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p2_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p2_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p2_enabled">true</condition>
+								<condition operator="!is" setting="p2_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 3" label="30033" help="">
+			<group id="1">
+				<setting id="p3_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 3</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p3_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p3_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p3_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p3_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p3_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p3_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p3_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p3_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p3_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p3_enabled">true</condition>
+								<condition operator="!is" setting="p3_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 4" label="30034" help="">
+			<group id="1">
+				<setting id="p4_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 4</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p4_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p4_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p4_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p4_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p4_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p4_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p4_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p4_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p4_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p4_enabled">true</condition>
+								<condition operator="!is" setting="p4_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 5" label="30035" help="">
+			<group id="1">
+				<setting id="p5_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 5</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p5_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p5_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p5_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p5_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p5_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p5_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p5_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p5_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p5_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p5_enabled">true</condition>
+								<condition operator="!is" setting="p5_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 6" label="30036" help="">
+			<group id="1">
+				<setting id="p6_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 6</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p6_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p6_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p6_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p6_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p6_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p6_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p6_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p6_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p6_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p6_enabled">true</condition>
+								<condition operator="!is" setting="p6_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category id="profil 7" label="30037" help="">
+			<group id="1">
+				<setting id="p7_profilename" type="string" label="30047" help="">
+					<level>0</level>
+					<default>Profile 7</default>
+					<control type="edit" format="string">
+						<heading>30047</heading>
+					</control>
+				</setting>
+				<setting id="p7_enabled" type="boolean" label="30048" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p7_mintitlelength" type="string" label="30022" help="30122">
+					<level>0</level>
+					<default>900</default>
+					<constraints>
+						<options>
+							<option label="30070">120</option>
+							<option label="30071">300</option>
+							<option label="30072">600</option>
+							<option label="30073">900</option>
+							<option label="30074">1200</option>
+							<option label="30075">1500</option>
+							<option label="30076">1800</option>
+							<option label="30077">2100</option>
+							<option label="30078">2400</option>
+							<option label="30079">2700</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">2</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p7_mode" type="integer" label="30061" help="30161">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30080">0</option>
+							<option label="30081">1</option>
+							<option label="30082">2</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p7_codec" type="integer" label="30040" help="30140">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30090">0</option>
+							<option label="30091">1</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p7_resolution" type="integer" label="30011" help="30111">
+					<level>0</level>
+					<default>1</default>
+					<constraints>
+						<options>
+							<option label="30041">0</option>
+							<option label="30042">1</option>
+							<option label="30043">2</option>
+							<option label="30044">3</option>
+							<option label="30045">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p7_quality" type="integer" label="30012" help="30112">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30085">0</option>
+							<option label="30086">1</option>
+							<option label="30087">2</option>
+							<option label="30088">3</option>
+							<option label="30089">4</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="spinner" format="string"/>
+				</setting>
+				<setting id="p7_foreignaudio" type="boolean" label="30024" help="30124">
+					<level>0</level>
+					<default>false</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p7_blackandwhite" type="boolean" label="30028" help="30128">
+					<level>0</level>
+					<default>30041</default>
+					<dependencies>
+						<dependency type="enable">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting id="p7_additionalhandbrakeargs" type="string" label="30064" help="">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="visible">
+							<and>
+								<condition operator="is" setting="p7_enabled">true</condition>
+								<condition operator="!is" setting="p7_mode">0</condition>
+							</and>
+						</dependency>
+					</dependencies>
+					<control type="edit" format="string">
+						<heading>30064</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+	</section>
 </settings>
