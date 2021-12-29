@@ -142,8 +142,8 @@ msgid "SDTV/DVD (NTSC)"
 msgstr "SDTV/DVD (NTSC)"
 
 msgctxt "#30046"
-msgid "Content of temporary Folder '%s' deleted."
-msgstr "Inhalt des temporären Verzeichnisses '%s' wurde gelöscht."
+msgid "Content of Folder '%s' deleted"
+msgstr "Inhalt des Ordners '%s' wurde gelöscht"
 
 msgctxt "#30047"
 msgid "Profile Name"

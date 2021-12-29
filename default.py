@@ -10,6 +10,7 @@ import xbmc
 import xbmcgui
 import xbmcaddon
 import xbmcvfs
+import traceback
 
 __addon__ = xbmcaddon.Addon()
 __addonID__ = __addon__.getAddonInfo('id')
@@ -287,12 +288,11 @@ class LoungeRipper(object):
         _p = 0
         _startsb = time.mktime(time.localtime())
         self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
-        try:
-            _comm = subprocess.Popen(process, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                     shell=True, universal_newlines=True)
 
-            while _comm.poll() is None:
-
+        _comm = subprocess.Popen(process, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                 shell=True, universal_newlines=True)
+        while _comm.poll() is None:
+            try:
                 if self.Monitor.abortRequested(): break
                 if percent != _p or message != _m:
                     if percent > 0.4 and message == 'Encoding':
@@ -323,7 +323,7 @@ class LoungeRipper(object):
                 elif 'Encoding' in data[0]:
                     message = data[0]
                     _val = data[1].split(',')
-                    percent = float(re.match('^ [0-9]+(.[0-9]*)', _val[1]).group())
+                    percent = float(re.match('^ [0-9]+(.[0-9])', _val[1]).group())
                 elif 'MSG' in data[0]:
                     _val = data[1].split(',')
                     self.notifyLog(_val[3].replace('"', ''))
@@ -331,8 +331,10 @@ class LoungeRipper(object):
                 else:
                     pass
 
-        except Exception as e:
-            self.notifyLog('An error has occurred: %s' % e)
+            except UnicodeDecodeError:
+                continue
+            except Exception:
+                self.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
 
         self.ProgressBG.close()
         self.notifyLog('%s finished with status %s' % (process_exec, _comm.poll()))
@@ -502,14 +504,12 @@ except Ripper.AbortedRipCompletedException:
 except Ripper.KillCurrentProcessCalledException:
     Ripper.notifyLog('All current ripper and encoders terminated')
 except Ripper.CleanUpTempFolderException:
-    ok = Ripper.Dialog.ok(__addonname__, __LS__(30046) % Ripper.tempfolder)
+    Ripper.Dialog.notification(__addonname__, __LS__(30046) % Ripper.tempfolder, __IconOk__)
     Ripper.notifyLog('Temporary folder %s cleaned' % Ripper.tempfolder)
 except Ripper.CurrentProcessAbortedException:
     Ripper.notifyLog('Last operation could not completed. Check results', level=xbmc.LOGERROR)
-'''
 except Exception as e:
-    Ripper.notifyLog('An error has occurred: %s' % e)
-'''
+    Ripper.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
 del Ripper
 
 # ToDo:
