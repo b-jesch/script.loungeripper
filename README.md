@@ -1,4 +1,4 @@
-Longe Ripper is an easy to use tool for ripping DVD and BluRay with one
+Lounge Ripper is an easy to use tool for ripping DVD and BluRay with one
 click within Kodi. Lounge Ripper is a program addon and require some additional
 tools.
 
@@ -45,7 +45,7 @@ Installation - Ubuntu (Do not use the version in the Ubuntu repos):
     sudo apt-get update
     sudo apt-get install handbrake-cli
 
-## Installation - Windows/Mac ##
+### Installation - Windows/Mac ###
 
 https://handbrake.fr/downloads2.php
 
