@@ -190,8 +190,8 @@ msgid "Could not detect removable media in drive or media isn't inserted or not 
 msgstr "Es befindet sich keine Disc im Laufwerk oder die Disc wird nicht erkannt bzw. ist nicht lesbar."
 
 msgctxt "#30058"
-msgid "A previous incomplete ripper process was complete finished."
-msgstr "Ein vorheriger unvollständiger Rip-Prozess wurde komplett abgearbeitet."
+msgid "The current process was terminated by an error"
+msgstr "Der aktuelle Prozess wurde durch einen Fehler beendet"
 
 msgctxt "#30059"
 msgid "There are more than one file present in source directory. Would You process all files with the same parameters at once? This requires high time consumption."

@@ -195,7 +195,7 @@ msgid "Could not detect removable media in drive or media isn't inserted or not 
 msgstr ""
 
 msgctxt "#30058"
-msgid "A previous incomplete ripper process was complete finished."
+msgid "The current process was terminated by an error"
 msgstr ""
 
 msgctxt "#30059"

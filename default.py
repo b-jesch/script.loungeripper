@@ -157,15 +157,6 @@ class LoungeRipper(object):
             self.delTempFolder(force=True)
             raise self.CleanUpTempFolderException()
 
-        if _profiles[_idx] == __LS__(30062):
-            self.buildDestFileAndFolder()
-            self.copyfile(os.path.join(self.tempfolder, self.src), os.path.join(self.destfolder, self.destfile))
-            self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.src))
-
-            if self.updatelib: xbmc.executebuiltin('UpdateLibrary(video)')
-
-            raise self.AbortedRipCompletedException()
-
     def notifyLog(self, message, level=xbmc.LOGDEBUG):
         xbmc.log('[%s] %s' % (__addonID__, message), level)
 
@@ -342,12 +333,13 @@ class LoungeRipper(object):
 
     def copyfile(self, source, dest):
         chunks = 0
-        chunksize = os.path.getsize(source) // 100
-        self.notifyLog('Copy file from \'%s\' to \'%s\'' % (source, dest))
-        self.ProgressBG.create('%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
 
-        with open(source, 'rb') as src, xbmcvfs.File(dest, 'w') as dst:
-            try:
+        self.notifyLog('Copy file from \'%s\' to \'%s\'' % (source, dest))
+        try:
+            chunksize = os.path.getsize(source) // 100
+            self.ProgressBG.create('%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
+
+            with open(source, 'rb') as src, xbmcvfs.File(dest, 'w') as dst:
                 while True:
                     self.ProgressBG.update(chunks, '%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
                     chunk = bytearray(src.read(chunksize))
@@ -356,8 +348,9 @@ class LoungeRipper(object):
                         break
                     dst.write(chunk)
                     chunks += 1
-            except Exception as e:
-                raise self.CurrentProcessAbortedException()
+        except Exception:
+            self.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
+            raise self.CurrentProcessAbortedException()
 
         self.ProgressBG.close()
         if self.del_tf: self.delTempFolder(file=source)
@@ -498,30 +491,14 @@ except Ripper.RipEncodeProcessStatesToBGException:
     Ripper.notifyLog('Rip/Encode processes turns into a background process')
     Ripper.notifyLog('After this toolchain may be broken and incomplete')
     Ripper.notifyLog('You can continue processing of toolchain afterwards')
-except Ripper.AbortedRipCompletedException:
-    ok = Ripper.Dialog.ok(__addonname__, __LS__(30058))
-    Ripper.notifyLog('A previous incomplete rip was completed')
 except Ripper.KillCurrentProcessCalledException:
     Ripper.notifyLog('All current ripper and encoders terminated')
 except Ripper.CleanUpTempFolderException:
     Ripper.Dialog.notification(__addonname__, __LS__(30046) % Ripper.tempfolder, __IconOk__)
     Ripper.notifyLog('Temporary folder %s cleaned' % Ripper.tempfolder)
 except Ripper.CurrentProcessAbortedException:
+    Ripper.Dialog.notification(__addonname__, __LS__(30058), __IconError__)
     Ripper.notifyLog('Last operation could not completed. Check results', level=xbmc.LOGERROR)
 except Exception as e:
     Ripper.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
 del Ripper
-
-# ToDo:
-#   New option: build ISO backup
-#   ripper command:  makemkvcon backup -r --messages=-stdout --progress=-same --decrypt --cache=16 --noscan disc:0 /path/to/dirToBuild
-#   ISO builder (BR): genisoimage -l -udf -allow-limited-size -input-charset utf-8 -o /path/to/output.iso /path/to/dirToBuild
-#   ISO builder (DVD): genisoimage -dvd-video -o /path/to/output.iso /path/to/dirToBuild
-#
-#   ISO builder WIN: %PathToImgBurn% /MODE BUILD /BUILDMODE IMAGEFILE /SRC %SRC% /DEST %DEST% /FILESYSTEM "UDF" /UDFREVISION "2.50" \
-#                    /VOLUMELABEL "%FolderNameOnly%" /CLOSE /NOIMAGEDETAILS /ROOTFOLDER "YES" /START
-#
-#   Linux: genisoimage has to be installed (apt-get genisoimage)
-#   Windows: ImgBurn has to be installed
-#
-#   Determine if DVD or BR: use foldernames (VIDEO_TS, AUDIO_TS; BDMV, CERTIFICATE)

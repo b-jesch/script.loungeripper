@@ -55,4 +55,6 @@ the content of the temp folder will be deleted after successfully operations
 so don't use your movie folder or other important folders as temp! The content
 within will be deleted!
 
-For a list of additional parameters take a look at <https://trac.handbrake.fr/wiki/CLIGuide>
+For a list of additional parameters take a look at <https://trac.handbrake.fr/wiki/CLIGuide> or use
+    
+    HandBrakeCLI --help
