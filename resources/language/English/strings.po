@@ -212,16 +212,14 @@ msgctxt "#30061"
 msgid "Mode"
 msgstr ""
 
-msgctxt "#30062"
-msgid "Continue previous incomplete Rip"
-msgstr ""
+# Empty string 30062
 
 msgctxt "#30063"
 msgid "Please wait..."
 msgstr ""
 
 msgctxt "#30064"
-msgid "Additional HandBrakeCLI Arguments"
+msgid "Add. HandBrakeCLI Options"
 msgstr ""
 
 msgctxt "#30065"
@@ -384,6 +382,10 @@ msgstr ""
 
 msgctxt "#30161"
 msgid "The addon has 3 modes 'Rip only', 'Rip and encode' and 'Encode only'. Select the mode you want."
+msgstr ""
+
+msgctxt "#30164"
+msgid "Set additional option for encoding your footage. For a complete list of options, type 'HandBrakeCLI --help' in a terminal."
 msgstr ""
 
 msgctxt "#30165"

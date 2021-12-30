@@ -205,17 +205,15 @@ msgctxt "#30061"
 msgid "Mode"
 msgstr "Modus"
 
-msgctxt "#30062"
-msgid "Continue previous incomplete Rip"
-msgstr "letzten unvollständigen Rip fortsetzen"
+# empty string 30062
 
 msgctxt "#30063"
 msgid "Please wait..."
 msgstr "Bitte warten..."
 
 msgctxt "#30064"
-msgid "Additional HandBrakeCLI Arguments"
-msgstr "Zusätzliche HandBrakeCLI Argumente"
+msgid "Add. HandBrakeCLI Options"
+msgstr "Zusätzl. HandBrakeCLI Optionen"
 
 msgctxt "#30065"
 msgid "Update Library after processing"
@@ -376,6 +374,10 @@ msgstr "Der Codec, der zur Komprimierung der Zieldatei verwendet wird. H.265 lie
 msgctxt "#30161"
 msgid "The addon has 3 modes 'Rip only', 'Rip and encode' and 'Encode only'. Select the mode you want."
 msgstr "Das Addon verfügt über die 3 Modis 'Nur Rippen', 'Rippen und Enkodieren' und 'Nur Enkodieren'. Wähle den gewünschten Modus aus."
+
+msgctxt "#30164"
+msgid "Set additional option for encoding your footage. For a complete list of options, type 'HandBrakeCLI --help' in a terminal."
+msgstr "Lege zusätzliche Optionen für die Kodierung des Filmmaterials fest. Für eine vollständige Liste der Optionen gebe 'HandBrakeCLI --help' in ein Terminal ein."
 
 msgctxt "#30165"
 msgid "Update library after processing. For this purpose, the created target file should already be in the library folder."
