@@ -187,7 +187,7 @@ msgid "All current Ripper or Encoder Tasks was killed."
 msgstr ""
 
 msgctxt "#30056"
-msgid "There are no valid files in folder '%s' for the operation to be performed or folder is empty. Copy the intended files into that folder."
+msgid "There are no valid files in folder '%s' for the operation to be performed. Maybe the last process has not created any files or You doesn't copy the intended files into that folder."
 msgstr ""
 
 msgctxt "#30057"
@@ -329,11 +329,11 @@ msgid "The higher the quality level is chosen, the larger the file size of the t
 msgstr ""
 
 msgctxt "#30116"
-msgid "To rip a BluRay/DVD the program 'makemkvcon' is needed. Enter the path to the installed file."
+msgid "To rip a BluRay/DVD the console program 'makemkvcon(.exe)' is needed. Enter the path to the installed file. Note: makemkvcon, not makemkv!"
 msgstr ""
 
 msgctxt "#30117"
-msgid "For conversion to the target format the program 'HandBarkeCLI' is needed. Enter the path to the installed file."
+msgid "For conversion to the target format the console program 'HandBrakeCLI(.exe)' is needed. Enter the path to the installed file. Note: HandBrakeCLI, not HandBrake!"
 msgstr ""
 
 msgctxt "#30119"

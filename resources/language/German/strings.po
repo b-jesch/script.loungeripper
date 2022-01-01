@@ -182,8 +182,8 @@ msgid "All current Ripper or Encoder Tasks was killed."
 msgstr "Alle aktiven Rip-/Encodeprozesse wurden terminiert."
 
 msgctxt "#30056"
-msgid "There are no valid files in folder '%s' for the operation to be performed or folder is empty. Copy the intended files into that folder."
-msgstr "Im Ordner '%s' befinden sich keine gültigen Dateien oder der Ordner ist leer. Lege die zur Abarbeitung vorgesehene Datei in diesem Ordner ab."
+msgid "There are no valid files in folder '%s' for the operation to be performed. Maybe the last process has not created any files or You doesn't copy the intended files into that folder."
+msgstr "Im Ordner '%s' befinden sich keine gültigen Dateien. Möglicherweise hat der letzte Prozess keine Dateien erzeugt oder Du hast die zur Abarbeitung vorgesehene Datei nicht in diesem Ordner abgelegt."
 
 msgctxt "#30057"
 msgid "Could not detect removable media in drive or media isn't inserted or not readable."
@@ -320,12 +320,12 @@ msgid "The higher the quality level is chosen, the larger the file size of the t
 msgstr "Je höher die Qualitätsstufe gewählt wird, umso größer wird die Dateigröße des Zielformats sein. Ein guter Kompromiss ist die Qualitätsstufe 'Hoch'."
 
 msgctxt "#30116"
-msgid "To rip a BluRay/DVD the program 'makemkvcon' is needed. Enter the path to the installed file."
-msgstr "Zum Rippen einer BluRay/DVD wird das Programm 'makemkvcon' benötigt. Gebe den Pfad zur installierten Datei ein."
+msgid "To rip a BluRay/DVD the console program 'makemkvcon(.exe)' is needed. Enter the path to the installed file. Note: makemkvcon, not makemkv!"
+msgstr "Zum Rippen einer BluRay/DVD wird das Terminalprogramm 'makemkvcon(.exe)' benötigt. Gebe den Pfad zur installierten Datei ein. Achtung: Die Datei makemkvcon wird benötigt, nicht makemkv!"
 
 msgctxt "#30117"
-msgid "For conversion to the target format the program 'HandBarkeCLI' is needed. Enter the path to the installed file."
-msgstr "Zur Konvertierung in das Zielformat wird das Programm 'HandBarkeCLI' benötigt. Gebe den Pfad zur installierten Datei ein."
+msgid "For conversion to the target format the console program 'HandBrakeCLI(.exe)' is needed. Enter the path to the installed file. Note: HandBrakeCLI, not HandBrake!"
+msgstr "Zur Konvertierung in das Zielformat wird das Programm 'HandBrakeCLI(.exe)' benötigt. Gebe den Pfad zur installierten Datei ein. Achtung: HandBrakeCLI wird benötigt, nicht HandBrake!"
 
 msgctxt "#30119"
 msgid "Deletes the ripped source file(s) when the selected operation is completed successfully."

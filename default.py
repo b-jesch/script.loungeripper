@@ -18,8 +18,6 @@ __addonname__ = __addon__.getAddonInfo('name')
 __path__ = __addon__.getAddonInfo('path')
 __version__ = __addon__.getAddonInfo('version')
 __LS__ = __addon__.getLocalizedString
-__IconOk__ = xbmc.translatePath(os.path.join(__path__, 'resources', 'media', 'disc.png'))
-__IconError__ = xbmc.translatePath(os.path.join(__path__, 'resources', 'media', 'error.png'))
 
 # PREDEFINES
 
@@ -280,8 +278,8 @@ class LoungeRipper(object):
         _startsb = time.mktime(time.localtime())
         self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
 
-        _comm = subprocess.Popen(process, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 shell=True, universal_newlines=True)
+        _comm = subprocess.Popen(process.encode('utf-8'), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                 shell=True, encoding='utf-8', errors='ignore')
         while _comm.poll() is None:
             try:
                 if self.Monitor.abortRequested(): break
@@ -336,20 +334,24 @@ class LoungeRipper(object):
 
         self.notifyLog('Copy file from \'%s\' to \'%s\'' % (source, dest))
         try:
-            chunksize = os.path.getsize(source) // 100
-            self.ProgressBG.create('%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
+            if os.path.exists(source):
+                chunksize = os.path.getsize(source) // 100
+                self.ProgressBG.create('%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
 
-            with open(source, 'rb') as src, xbmcvfs.File(dest, 'w') as dst:
-                while True:
-                    self.ProgressBG.update(chunks, '%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
-                    chunk = bytearray(src.read(chunksize))
-                    if not chunk:
-                        self.notifyLog('%s chunks transmitted' % chunks)
-                        break
-                    dst.write(chunk)
-                    chunks += 1
+                with open(source, 'rb') as src, xbmcvfs.File(dest, 'w') as dst:
+                    while True:
+                        self.ProgressBG.update(chunks, '%s - %s' % (__addonname__, __LS__(30066) % self.title), __LS__(30067))
+                        chunk = bytearray(src.read(chunksize))
+                        if not chunk:
+                            self.notifyLog('%s chunks transmitted' % chunks)
+                            break
+                        dst.write(chunk)
+                        chunks += 1
+            else:
+                raise self.CouldNotFindValidFilesException
         except Exception:
             self.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
+            self.ProgressBG.close()
             raise self.CurrentProcessAbortedException()
 
         self.ProgressBG.close()
@@ -442,12 +444,12 @@ class LoungeRipper(object):
                 if _rv != 0:
                     raise self.HandBrakeCLIExitsNotProperlyException()
                 self.copyfile(os.path.join(self.tempfolder, self.tmp), os.path.join(self.destfolder, self.destfile))
-                self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.tmp))
+                # self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.tmp))
                 if self.del_tf: self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.src))
                 #
                 # READY
                 #
-            self.Dialog.notification(__addonname__, __LS__(30049) % (__addonname__, self.task), __IconOk__)
+            self.Dialog.notification(__addonname__, __LS__(30049) % (__addonname__, self.task), xbmcgui.NOTIFICATION_INFO)
             if self.process_all is None or not self.process_all: break
 
         if self.updatelib: xbmc.executebuiltin('UpdateLibrary(video)')
@@ -494,10 +496,10 @@ except Ripper.RipEncodeProcessStatesToBGException:
 except Ripper.KillCurrentProcessCalledException:
     Ripper.notifyLog('All current ripper and encoders terminated')
 except Ripper.CleanUpTempFolderException:
-    Ripper.Dialog.notification(__addonname__, __LS__(30046) % Ripper.tempfolder, __IconOk__)
+    Ripper.Dialog.notification(__addonname__, __LS__(30046) % Ripper.tempfolder, xbmcgui.NOTIFICATION_INFO)
     Ripper.notifyLog('Temporary folder %s cleaned' % Ripper.tempfolder)
 except Ripper.CurrentProcessAbortedException:
-    Ripper.Dialog.notification(__addonname__, __LS__(30058), __IconError__)
+    Ripper.Dialog.notification(__addonname__, __LS__(30058), xbmcgui.NOTIFICATION_ERROR)
     Ripper.notifyLog('Last operation could not completed. Check results', level=xbmc.LOGERROR)
 except Exception as e:
     Ripper.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
