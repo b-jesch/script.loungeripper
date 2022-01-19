@@ -58,3 +58,8 @@ within will be deleted!
 For a list of additional parameters take a look at <https://trac.handbrake.fr/wiki/CLIGuide> or use
     
     HandBrakeCLI --help
+
+## mkisofs ##
+
+mkisofs creates an ISO image from existing files and folders and should be installed by default on every
+Linux system. For Windows/Mac you have to download and install a CLI program e.g. from cdrtools.
