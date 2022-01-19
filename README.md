@@ -4,8 +4,8 @@ tools.
 
 ## Pre-Requisites ##
 
-By default, Longe Ripper utilizes MakeMKV <http://www.makemkv.com/> and
-HandBrake <https://handbrake.fr/> to do the actual ripping and encoding of DVDs
+By default, Longe Ripper utilizes MakeMKV <http://www.makemkv.com/>, HandBrake 
+<https://handbrake.fr/> and mkisofs to do the actual ripping, encoding and imaging of DVDs
 and BluRays, so these must be installed prior to it working.
 
 ## MakeMKV ##
