@@ -33,6 +33,10 @@ msgctxt "#30017"
 msgid "Path to 'HandBrakeCLI'"
 msgstr "Pfad zu 'HandBrakeCLI'"
 
+msgctxt "#30018"
+msgid "Path to 'mkisofs'"
+msgstr "Pfad zu 'mkisofs'"
+
 msgctxt "#30019"
 msgid "Delete Source Files after successfully Operation"
 msgstr "Nach erfolgreicher Ausführung Quelldatei löschen"
@@ -283,6 +287,10 @@ msgctxt "#30082"
 msgid "Encode only"
 msgstr "Nur Encodieren"
 
+msgctxt "#30083"
+msgid "Backup to ISO"
+msgstr "ISO Backup erstellen"
+
 msgctxt "#30085"
 msgid "Very High"
 msgstr "Sehr Hoch"
@@ -326,6 +334,10 @@ msgstr "Zum Rippen einer BluRay/DVD wird das Terminalprogramm 'makemkvcon(.exe)'
 msgctxt "#30117"
 msgid "For conversion to the target format the console program 'HandBrakeCLI(.exe)' is needed. Enter the path to the installed file. Note: HandBrakeCLI, not HandBrake!"
 msgstr "Zur Konvertierung in das Zielformat wird das Programm 'HandBrakeCLI(.exe)' benötigt. Gebe den Pfad zur installierten Datei ein. Achtung: HandBrakeCLI wird benötigt, nicht HandBrake!"
+
+msgctxt "#30118"
+msgid "To create ISO images, the console program 'mkisofs(.exe)' is needed. Enter the path to the installed file."
+msgstr "Zum Erzeugen von ISO Images wird das Programm 'mkisofs(.exe)' benötigt. Gebe den Pfad zur installierten Datei ein."
 
 msgctxt "#30119"
 msgid "Deletes the ripped source file(s) when the selected operation is completed successfully."
@@ -372,8 +384,8 @@ msgid "The codec used to compress the destination file. H.265 provides a smaller
 msgstr "Der Codec, der zur Komprimierung der Zieldatei verwendet wird. H.265 liefert eine kleinere Dateigröße, benötigt jedoch mehr Zeit als der H.264 Codec."
 
 msgctxt "#30161"
-msgid "The addon has 3 modes 'Rip only', 'Rip and encode' and 'Encode only'. Select the mode you want."
-msgstr "Das Addon verfügt über die 3 Modis 'Nur Rippen', 'Rippen und Enkodieren' und 'Nur Enkodieren'. Wähle den gewünschten Modus aus."
+msgid "The addon has 4 modes 'Rip only', 'Rip and encode', 'Encode only' and 'Create ISO Backup'. Select the mode you want."
+msgstr "Das Addon verfügt über die 4 Modis 'Nur Rippen', 'Rippen und Enkodieren', 'Nur Enkodieren' sowie 'ISO Backup erstellen'. Wähle den gewünschten Modus aus."
 
 msgctxt "#30164"
 msgid "Set additional option for encoding your footage. For a complete list of options, type 'HandBrakeCLI --help' in a terminal."

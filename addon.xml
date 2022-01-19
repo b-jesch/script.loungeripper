@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.loungeripper" name="Lounge Ripper" version="3.0.0+matrix.5" provider-name="Birger Jesch">
+<addon id="script.loungeripper" name="Lounge Ripper" version="3.1.0+matrix" provider-name="Birger Jesch">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
@@ -11,8 +11,8 @@
         <summary lang="de">Rippt DVDs und BluRays in Kodi</summary>
 		<description lang="en">Lounge Ripper uses MakeMKV and Handbrake to rip and encode movies directly into Kodi with a simple press of a button.</description>
         <description lang="de">Mit Lounge Ripper einfach per Knopfdruck Filme direkt in Kodi mit Hilfe von MakeMKV und Handbrake rippen und umkodieren.</description>
-		<disclaimer lang="en">Since Lounge Ripper makes use of MakeMKV and Handbrake, those must be installed properly for it to work.</disclaimer>
-		<disclaimer lang="de">Lounge Ripper verwendet MakeMKV und Handbrake, diese müssen korrekt installiert sein.</disclaimer>
+		<disclaimer lang="en">Since Lounge Ripper makes use of MakeMKV,Handbrake and mkisofs, those must be installed properly for it to work.</disclaimer>
+		<disclaimer lang="de">Lounge Ripper verwendet MakeMKV, Handbrake und mkisofs, diese müssen korrekt installiert sein.</disclaimer>
 		<platform>all</platform>
 		<license></license>
 		<forum></forum>

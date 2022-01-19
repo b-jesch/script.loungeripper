@@ -34,7 +34,9 @@ msgctxt "#30017"
 msgid "Path to 'HandBrakeCLI'"
 msgstr ""
 
-#empty string with id 30018
+msgctxt "#30018"
+msgid "Path to 'mkisofs'"
+msgstr ""
 
 msgctxt "#30019"
 msgid "Delete Source Files after successfully Operation"
@@ -113,7 +115,7 @@ msgid "Profile 7"
 msgstr ""
 
 msgctxt "#30038"
-msgid "Abort currently running Rip/Encode Process"
+msgid "Abort currently running Rip/Encode/Image Process"
 msgstr ""
 
 msgctxt "#30039"
@@ -212,7 +214,9 @@ msgctxt "#30061"
 msgid "Mode"
 msgstr ""
 
-# Empty string 30062
+msgctxt "#30062"
+msgid "An Error occured while creating an image file or the Process was aborted by User."
+msgstr ""
 
 msgctxt "#30063"
 msgid "Please wait..."
@@ -292,6 +296,10 @@ msgctxt "#30082"
 msgid "Encode only"
 msgstr ""
 
+msgctxt "#30083"
+msgid "Backup to ISO"
+msgstr ""
+
 msgctxt "#30085"
 msgid "Very High"
 msgstr ""
@@ -334,6 +342,10 @@ msgstr ""
 
 msgctxt "#30117"
 msgid "For conversion to the target format the console program 'HandBrakeCLI(.exe)' is needed. Enter the path to the installed file. Note: HandBrakeCLI, not HandBrake!"
+msgstr ""
+
+msgctxt "#30118"
+msgid "To create ISO images, the console program 'mkisofs(.exe)' is needed. Enter the path to the installed file."
 msgstr ""
 
 msgctxt "#30119"

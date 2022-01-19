@@ -63,6 +63,7 @@ class LoungeRipper(object):
     class RemovableMediaNotPresentException(Exception): pass
     class MakemkvExitsNotProperlyException(Exception): pass
     class HandBrakeCLIExitsNotProperlyException(Exception): pass
+    class MkisofsExitsNotProperlyException(Exception): pass
     class RipEncodeProcessStatesToBGException(Exception): pass
     class AbortedRipCompletedException(Exception): pass
     class KillCurrentProcessCalledException(Exception): pass
@@ -77,7 +78,8 @@ class LoungeRipper(object):
         self.tmp = None
         self.destfolder = None
         self.title = None
-        self.extensions = ['.mkv', '.ts', '.m2ts', '.mp4', '.mpg', '.mpeg', '.avi', '.flv', '.wmv', '.264', '.mov']
+        self.extensions = ['.mkv', '.ts', '.m2ts', '.mp4', '.mpg', '.mpeg',
+                           '.avi', '.flv', '.wmv', '.264', '.mov', '.iso']
         self.task = None
         self.process_all = None
         self.lastmessage = None
@@ -87,6 +89,7 @@ class LoungeRipper(object):
         self.profile = None
         self.ripper = None
         self.encoder = None
+        self.mkiso = None
 
         # Other
 
@@ -98,6 +101,7 @@ class LoungeRipper(object):
 
         self.ripper_executable = __addon__.getSetting('makemkvcon')
         self.encoder_executable = __addon__.getSetting('HandBrakeCLI')
+        self.mkisofs_executable = __addon__.getSetting('mkisofs')
         self.tempfolder = __addon__.getSetting('tempfolder')
         self.basefolder = __addon__.getSetting('basefolder')
         self.subfolder = True if __addon__.getSetting('subfolder').upper() == 'TRUE' else False
@@ -113,7 +117,8 @@ class LoungeRipper(object):
 
     def getUserProfiles(self):
         _profiles = list()
-        if self.getProcessPID(self.ripper_executable) or self.getProcessPID(self.encoder_executable):
+        if self.getProcessPID(self.ripper_executable) or self.getProcessPID(self.encoder_executable) or \
+                self.getProcessPID(self.mkisofs_executable):
             _profiles.append(__LS__(30038))
         else:
             for _profile in ['p1_', 'p2_', 'p3_', 'p4_', 'p5_', 'p6_', 'p7_']:
@@ -137,7 +142,6 @@ class LoungeRipper(object):
                 self.profile['mintitlelength'] = int(re.match('\d+', __addon__.getSetting(_profile + 'mintitlelength')).group())
                 self.profile['mode'] = int(__addon__.getSetting(_profile + 'mode'))
                 self.profile['foreignaudio'] = ALLTRACKS if __addon__.getSetting(_profile + 'foreignaudio').upper() == 'TRUE' else ''
-                self.profile['blackandwhite'] = BW if __addon__.getSetting(_profile + 'blackandwhite').upper() == 'TRUE' else ''
                 self.profile['additionalhandbrakeargs'] = __addon__.getSetting(_profile + 'additionalhandbrakeargs')
 
         if _profiles[_idx] == __LS__(30038):
@@ -149,10 +153,14 @@ class LoungeRipper(object):
             if _procpid:
                 self.notifyLog('Killing encoder process with PID %s' % _procpid)
                 self.killProcessPID(_procpid, process=self.encoder_executable)
+            _procpid = self.getProcessPID(self.mkisofs_executable)
+            if _procpid:
+                self.notifyLog('Killing mkisofs process with PID %s' % _procpid)
+                self.killProcessPID(_procpid, process=self.mkisofs_executable)
             raise self.KillCurrentProcessCalledException()
 
         if _profiles[_idx] == __LS__(30039):
-            self.delTempFolder(force=True)
+            self.rmdirs(self.tempfolder, force=True)
             raise self.CleanUpTempFolderException()
 
     def notifyLog(self, message, level=xbmc.LOGDEBUG):
@@ -160,13 +168,9 @@ class LoungeRipper(object):
 
     def checkSystemSettings(self):
 
-        if not self.ripper_executable:
+        if not self.ripper_executable or not self.encoder_executable or not self.mkisofs_executable:
             raise self.SystemSettingUndefinedException()
-        if not self.encoder_executable:
-            raise self.SystemSettingUndefinedException()
-        if not self.tempfolder:
-            raise self.SystemSettingUndefinedException()
-        if not self.basefolder:
+        if not self.tempfolder or not self.basefolder:
             raise self.SystemSettingUndefinedException()
 
     def getProcessPID(self, process):
@@ -193,12 +197,21 @@ class LoungeRipper(object):
             _syscmd = subprocess.call('TASKKILL /F /IM %s' % os.path.basename(process), shell=True)
         else: pass
 
+    def rmdirs(self, folder, force=True):
+        dirs, files = xbmcvfs.listdir(folder)
+        for file in files: xbmcvfs.delete(os.path.join(folder, file))
+        for dir in dirs:
+            self.rmdirs(os.path.join(folder, dir), force=force)
+            os.rmdir(os.path.join(folder, dir))
+        return
+
     def delTempFolder(self, force=False, file=None):
         #
         # delete old temp files recursive if there any, but only if there's no previous rip/encode running
         #
-        if self.getProcessPID(self.ripper_executable) or self.getProcessPID(self.encoder_executable):
-            self.notifyLog('Couldn\'t clearing up folder %s, ripper or encoder active' % self.tempfolder)
+        if self.getProcessPID(self.ripper_executable) or self.getProcessPID(self.encoder_executable) or \
+                self.getProcessPID(self.mkisofs_executable):
+            self.notifyLog('Couldn\'t clearing up folder %s, ripper, encoder or mkisofs active' % self.tempfolder)
             return False
         elif not (self.del_tf or force):
             self.notifyLog('Not allowed clearing up folder %s due settings' % self.tempfolder)
@@ -206,12 +219,8 @@ class LoungeRipper(object):
         elif file is not None and self.del_tf:
             xbmcvfs.delete(file)
             return True
-        elif force and file is not None:
-            xbmcvfs.delete(file)
         elif force:
-            content = xbmcvfs.listdir(self.tempfolder)
-            for dir in content[0]: xbmcvfs.rmdir(os.path.join(self.tempfolder, dir), force=force)
-            for file in content[1]: xbmcvfs.delete(os.path.join(self.tempfolder, file))
+            self.rmdirs(self.tempfolder, force=force)
             return True
         else:
             return False
@@ -220,8 +229,7 @@ class LoungeRipper(object):
         rips = list()
         content = xbmcvfs.listdir(self.tempfolder)
         for files in content[1]:
-            for ext in self.extensions:
-                if ext in files: rips.append(files)
+            if os.path.splitext(files)[1] in self.extensions: rips.append(files)
 
         _fsize = 0
         self.notifyLog('Search for the largest file in %s' % self.tempfolder)
@@ -259,7 +267,7 @@ class LoungeRipper(object):
             self.title = self.title.replace('_', ' ')
             self.title = " ".join(word.capitalize() for word in self.title.split())
 
-            self.destfile = self.title + '.mkv'
+            self.destfile = self.title + os.path.splitext(self.src)[1]
             if self.subfolder:
                 self.destfolder = os.path.join(self.basefolder, self.title)
             else:
@@ -313,6 +321,9 @@ class LoungeRipper(object):
                     message = data[0]
                     _val = data[1].split(',')
                     percent = float(re.match('^ [0-9]+(.[0-9])', _val[1]).group())
+                elif 'done, ' in data[0]:
+                    message = 'create ISO'
+                    percent = float(re.match('^[0-9]+(.[0-9])', data[0].lstrip()).group())
                 elif 'MSG' in data[0]:
                     _val = data[1].split(',')
                     self.notifyLog(_val[3].replace('"', ''))
@@ -362,10 +373,11 @@ class LoungeRipper(object):
         self.notifyLog('Engage Lounge Ripper %s on %s %s' % (__version__, OS, V))
         self.checkSystemSettings()
         self.getUserProfiles()
+        self.notifyLog('starting task \'%s\' (mode %s)' % (self.task, self.profile['mode']))
 
-        if self.profile['mode'] == 0 or self.profile['mode'] == 1:
+        if self.profile['mode'] == 0 or self.profile['mode'] == 1 or self.profile['mode'] == 3:
             #
-            # RIP ONLY / RIP AND ENCODE
+            # RIP ONLY / RIP AND ENCODE / BACKUP
             #
             # Check if media is present in drive [driveno]
             # raise self.MediaIsNotPresentException if isn't
@@ -393,6 +405,12 @@ class LoungeRipper(object):
                            self.profile['mintitlelength'],
                            self.tempfolder)
 
+            if self.profile['mode'] == 3:
+                isofolder = os.path.join(self.tempfolder, 'ISO')
+                if not xbmcvfs.exists(isofolder): xbmcvfs.mkdirs(isofolder)
+                self.ripper = '"%s" backup -r --decrypt --cache=16 --noscan --progress=-same disc:%s "%s"'\
+                              % (self.ripper_executable, self.driveid, isofolder)
+
             self.notifyLog('Ripper command line: %s' % self.ripper)
 
             _rv = self.pollSubprocess(self.ripper_executable, self.ripper, self.title)
@@ -402,11 +420,28 @@ class LoungeRipper(object):
             if self.eject:
                 xbmc.executebuiltin('EjectTray()')
                 self.notifyLog('Eject disc')
-            self.buildDestFileAndFolder(title=self.title)
 
-        if self.profile['mode'] == 0:
+        if self.profile['mode'] == 0 or self.profile['mode'] == 3:
+            if self.profile['mode'] == 3:
+                #
+                # Make ISO
+                #
+                isofile = os.path.join(self.tempfolder, self.title + '.iso')
+                self.mkiso = '"%s" -udf -R -J -allow-limited-size -input-charset utf-8 -iso-level 3 -V "%s" -o "%s" "%s"' \
+                             % (self.mkisofs_executable, self.title.upper(), isofile, isofolder)
+
+                self.notifyLog('mkisofs command line: %s' % self.mkiso)
+                _rv = self.pollSubprocess(self.mkisofs_executable, self.mkiso, self.title)
+                if _rv is None:
+                    raise self.RipEncodeProcessStatesToBGException()
+                if _rv != 0: self.MkisofsExitsNotProperlyException()
+
+                # remove ISO folder
+                if self.del_tf: self.rmdirs(isofolder, force=True)
+
+            self.buildDestFileAndFolder(title=self.title)
             #
-            # RIP ONLY - WE ARE READY
+            # RIP ONLY / BACKUP - WE ARE READY
             #
             self.notifyLog('Encoding of \'%s\' not required in this profile' % self.destfile)
             self.copyfile(os.path.join(self.tempfolder, self.src), os.path.join(self.destfolder, self.destfile))
@@ -424,7 +459,7 @@ class LoungeRipper(object):
 
                 self.tmp = str(int(time.time()))
                 self.encoder = '"%s" -i "%s" -o "%s" -f mkv --decomb fast -N %s --native-dub -m ' \
-                               '-Z "%s MKV 2160p60" -s 1 %s %s %s %s %s 2>&1' % \
+                               '-Z "%s MKV 2160p60" -s 1 %s %s %s %s 2>&1' % \
                                (self.encoder_executable,
                                 os.path.join(self.tempfolder, self.src),
                                 os.path.join(self.tempfolder, self.tmp),
@@ -432,7 +467,6 @@ class LoungeRipper(object):
                                 self.profile['codec'],
                                 self.profile['foreignaudio'],
                                 self.profile['quality'],
-                                self.profile['blackandwhite'],
                                 self.profile['resolution'],
                                 self.profile['additionalhandbrakeargs'])
 
@@ -444,7 +478,6 @@ class LoungeRipper(object):
                 if _rv != 0:
                     raise self.HandBrakeCLIExitsNotProperlyException()
                 self.copyfile(os.path.join(self.tempfolder, self.tmp), os.path.join(self.destfolder, self.destfile))
-                # self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.tmp))
                 if self.del_tf: self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.src))
                 #
                 # READY
@@ -489,6 +522,9 @@ except Ripper.MakemkvExitsNotProperlyException:
 except Ripper.HandBrakeCLIExitsNotProperlyException:
     ok = Ripper.Dialog.ok(__addonname__, __LS__(30054))
     Ripper.notifyLog('An error occured while encoding with %s' % Ripper.encoder_executable, level=xbmc.LOGERROR)
+except Ripper.MkisofsExitsNotProperlyException:
+    ok = Ripper.Dialog.ok(__addonname__, __LS__(30062))
+    Ripper.notifyLog('An error occured while processing %s' % Ripper.mkisofs_executable, level=xbmc.LOGERROR)
 except Ripper.RipEncodeProcessStatesToBGException:
     Ripper.notifyLog('Rip/Encode processes turns into a background process')
     Ripper.notifyLog('After this toolchain may be broken and incomplete')
