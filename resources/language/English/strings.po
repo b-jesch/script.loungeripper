@@ -242,7 +242,9 @@ msgctxt "#30068"
 msgid "Drive ID"
 msgstr ""
 
-#empty string with id 30069
+msgctxt "30069"
+msgid "MakeMKV has reported a Medium Error. Some Retries have finally failed. The Backup is incomplete. Clean the medium and try again."
+msgstr ""
 
 msgctxt "#30070"
 msgid "2 Minutes"

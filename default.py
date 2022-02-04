@@ -62,6 +62,7 @@ class LoungeRipper(object):
     class SystemSettingUndefinedException(Exception): pass
     class RemovableMediaNotPresentException(Exception): pass
     class MakemkvExitsNotProperlyException(Exception): pass
+    class MakemkvReportsMediumErrorException(Exception): pass
     class HandBrakeCLIExitsNotProperlyException(Exception): pass
     class MkisofsExitsNotProperlyException(Exception): pass
     class RipEncodeProcessStatesToBGException(Exception): pass
@@ -328,6 +329,7 @@ class LoungeRipper(object):
                     _val = data[1].split(',')
                     self.notifyLog(_val[3].replace('"', ''))
                     self.lastmessage = _val[3].replace('"', '')
+                    if 'MEDIUM ERROR' in _val[3]: raise self.MakemkvReportsMediumErrorException
                 else:
                     pass
 
@@ -513,6 +515,9 @@ except Ripper.CouldNotFindValidFilesException:
 except Ripper.RemovableMediaNotPresentException:
     Ripper.notifyLog('Could not detect removable media or media isn\'t present or not readable', level=xbmc.LOGERROR)
     ok = Ripper.Dialog.ok(__addonname__, __LS__(30057))
+except Ripper.MakemkvReportsMediumErrorException:
+    ok = Ripper.Dialog.ok(__addonname__, __LS__(30069))
+    Ripper.notifyLog('MakeMKV has reported a medium error', level=xbmc.LOGERROR)
 except Ripper.MakemkvExitsNotProperlyException:
     ok = Ripper.Dialog.ok(__addonname__, __LS__(30053))
     Ripper.notifyLog('%s don\'t work as expected, possibly too old, '
