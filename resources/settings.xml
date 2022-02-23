@@ -55,22 +55,6 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
-				<setting id="basefolder" type="path" label="30021" help="30121">
-					<level>0</level>
-					<default/>
-					<constraints>
-						<writable>true</writable>
-						<allowempty>true</allowempty>
-					</constraints>
-					<control type="button" format="path">
-						<heading>30021</heading>
-					</control>
-				</setting>
-				<setting id="subfolder" type="boolean" label="30027" help="30127">
-					<level>0</level>
-					<default>true</default>
-					<control type="toggle"/>
-				</setting>
 				<setting id="updatelib" type="boolean" label="30065" help="30165">
 					<level>0</level>
 					<default>false</default>
@@ -601,6 +585,32 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
+				<setting id="p1_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p1subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
 				<setting id="p1_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>
 					<default>900</default>
@@ -775,6 +785,32 @@
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
+				</setting>
+				<setting id="p2_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p2_subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p2_enabled">true</condition>
+						</dependency>
+					</dependencies>
 				</setting>
 				<setting id="p2_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>
@@ -951,6 +987,32 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
+				<setting id="p3_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p3_subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
 				<setting id="p3_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>
 					<default>900</default>
@@ -1125,6 +1187,32 @@
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
+				</setting>
+				<setting id="p4_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p4_subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p4_enabled">true</condition>
+						</dependency>
+					</dependencies>
 				</setting>
 				<setting id="p4_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>
@@ -1301,6 +1389,32 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
+				<setting id="p5_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p5_subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
 				<setting id="p5_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>
 					<default>900</default>
@@ -1476,6 +1590,32 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
+				<setting id="p6_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p6_subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
 				<setting id="p6_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>
 					<default>900</default>
@@ -1650,6 +1790,32 @@
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
+				</setting>
+				<setting id="p7_basefolder" type="path" label="30021" help="30121">
+					<level>0</level>
+					<default/>
+					<constraints>
+						<writable>true</writable>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control type="button" format="path">
+						<heading>30021</heading>
+					</control>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+				</setting>
+				<setting id="p7_subfolder" type="boolean" label="30027" help="30127">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="p7_enabled">true</condition>
+						</dependency>
+					</dependencies>
 				</setting>
 				<setting id="p7_mintitlelength" type="string" label="30022" help="30122">
 					<level>0</level>

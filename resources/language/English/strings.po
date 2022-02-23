@@ -173,7 +173,7 @@ msgid "You don't have selected any active Profile. Lounge Ripper will be termina
 msgstr ""
 
 msgctxt "#30052"
-msgid "One or more System Settings are invalid. Please check Settings again."
+msgid "One or more System Settings or Profile Settings are invalid or missing. Please check Settings again."
 msgstr ""
 
 msgctxt "#30053"

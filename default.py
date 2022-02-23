@@ -104,8 +104,6 @@ class LoungeRipper(object):
         self.encoder_executable = __addon__.getSetting('HandBrakeCLI')
         self.mkisofs_executable = __addon__.getSetting('mkisofs')
         self.tempfolder = __addon__.getSetting('tempfolder')
-        self.basefolder = __addon__.getSetting('basefolder')
-        self.subfolder = True if __addon__.getSetting('subfolder').upper() == 'TRUE' else False
         self.del_tf = True if __addon__.getSetting('deltempfolder').upper() == 'TRUE' else False
 
         self.nativelanguage = __addon__.getSetting('nativelanguage')
@@ -137,6 +135,8 @@ class LoungeRipper(object):
         for _profile in ['p1_', 'p2_', 'p3_', 'p4_', 'p5_', 'p6_', 'p7_']:
             if __addon__.getSetting(_profile + 'profilename') == _profiles[_idx]:
                 self.task = _profiles[_idx]
+                self.profile['basefolder'] = __addon__.getSetting(_profile + 'basefolder')
+                self.profile['subfolder'] = True if __addon__.getSetting(_profile + 'subfolder').upper() == 'TRUE' else False
                 self.profile['codec'] = CODEC[int(__addon__.getSetting(_profile + 'codec'))]
                 self.profile['resolution'] = MAXDIM[int(__addon__.getSetting(_profile + 'resolution'))]
                 self.profile['quality'] = QUALITY[int(__addon__.getSetting(_profile + 'quality'))]
@@ -171,7 +171,7 @@ class LoungeRipper(object):
 
         if not self.ripper_executable or not self.encoder_executable or not self.mkisofs_executable:
             raise self.SystemSettingUndefinedException()
-        if not self.tempfolder or not self.basefolder:
+        if not self.tempfolder or not self.profile['basefolder']:
             raise self.SystemSettingUndefinedException()
 
     def getProcessPID(self, process):
@@ -269,10 +269,10 @@ class LoungeRipper(object):
             self.title = " ".join(word.capitalize() for word in self.title.split())
 
             self.destfile = self.title + os.path.splitext(self.src)[1]
-            if self.subfolder:
-                self.destfolder = os.path.join(self.basefolder, self.title)
+            if self.profile['subfolder']:
+                self.destfolder = os.path.join(self.profile['basefolder'], self.title)
             else:
-                self.destfolder = self.basefolder
+                self.destfolder = self.profile['basefolder']
             if not xbmcvfs.exists(self.destfolder): xbmcvfs.mkdirs(self.destfolder)
         else:
             raise self.CouldNotFindValidFilesException()
@@ -288,7 +288,7 @@ class LoungeRipper(object):
         self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
 
         _comm = subprocess.Popen(process.encode('utf-8'), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 shell=True, encoding='utf-8', errors='ignore')
+                                 shell=True, encoding='utf-8', errors='ignore', text=True)
         while _comm.poll() is None:
             try:
                 if self.Monitor.abortRequested(): break
@@ -329,7 +329,8 @@ class LoungeRipper(object):
                     _val = data[1].split(',')
                     self.notifyLog(_val[3].replace('"', ''))
                     self.lastmessage = _val[3].replace('"', '')
-                    if 'MEDIUM ERROR' in _val[3]: raise self.MakemkvReportsMediumErrorException
+                    if 'MEDIUM ERROR' in _val[3] or 'HARDWARE ERROR' in _val[3]:
+                        raise self.MakemkvReportsMediumErrorException
                 else:
                     pass
 
@@ -373,8 +374,8 @@ class LoungeRipper(object):
     def start(self):
 
         self.notifyLog('Engage Lounge Ripper %s on %s %s' % (__version__, OS, V))
-        self.checkSystemSettings()
         self.getUserProfiles()
+        self.checkSystemSettings()
         self.notifyLog('starting task \'%s\' (mode %s)' % (self.task, self.profile['mode']))
 
         if self.profile['mode'] == 0 or self.profile['mode'] == 1 or self.profile['mode'] == 3:
@@ -453,11 +454,13 @@ class LoungeRipper(object):
                 #
                 # RIP AND ENCODE / ENCODE ONLY
                 #
-                if self.profile['mode'] == 2:
+                if self.profile['mode'] == 1:
                     #
-                    # ENCODE ONLY - EXPECT FILE(S) IN TEMPFOLDER, USING LARGEST
+                    # RIP/ENCODE - EXPECT FILE(S) IN TEMPFOLDER, USING LARGEST
                     #
-                    self.buildDestFileAndFolder()
+                    self.process_all = False
+
+                self.buildDestFileAndFolder()
 
                 self.tmp = str(int(time.time()))
                 self.encoder = '"%s" -i "%s" -o "%s" -f mkv --decomb fast -N %s --native-dub -m ' \

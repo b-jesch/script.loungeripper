@@ -170,8 +170,8 @@ msgid "You don't have selected any active Profile. Lounge Ripper will be termina
 msgstr "Es wurde kein aktives Profil ausgewählt. Lounge Ripper wird beendet."
 
 msgctxt "#30052"
-msgid "One or more System Settings are invalid. Please check Settings again."
-msgstr "Eine oder mehrere Systemeinstellungen sind ungültig. Bitte überprüfe nochmals die Einstellungen in den Settings des Addons."
+msgid "One or more System Settings or Profile Settings are invalid or missing. Please check Settings again."
+msgstr "Eine oder mehrere System- oder Profil-Einstellungen sind ungültig oder nicht vorhanden. Bitte überprüfe nochmals die Einstellungen in den Settings des Addons."
 
 msgctxt "#30053"
 msgid "MakeMKV don't work as expected. The Version is too old, the License Key is invalid, the process was aborted by user or another Error has occured (see logfile)."
