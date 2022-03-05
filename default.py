@@ -120,7 +120,7 @@ class LoungeRipper(object):
             for _profile in ['p1_', 'p2_', 'p3_', 'p4_', 'p5_', 'p6_', 'p7_']:
                 if __addon__.getSetting(_profile + 'enabled') == 'true':
                     _profiles.append(__addon__.getSetting(_profile + 'profilename'))
-            if xbmcvfs.exists(self.tempfolder): _profiles.append(__LS__(30039))
+            if xbmcvfs.exists(self.tempfolder) and self.checkTempFolder(): _profiles.append(__LS__(30039))
         if not _profiles:
             raise self.NoProfileEnabledException()
 
@@ -202,6 +202,10 @@ class LoungeRipper(object):
             self.rmdirs(os.path.join(folder, dir), force=force)
             os.rmdir(os.path.join(folder, dir))
         return
+
+    def checkTempFolder(self):
+        dirs, files = xbmcvfs.listdir(self.tempfolder)
+        return dirs or files
 
     def delTempFolder(self, force=False, file=None):
         #
@@ -399,8 +403,7 @@ class LoungeRipper(object):
 
             if not _foundmedia: raise self.RemovableMediaNotPresentException()
 
-            dirs, files = xbmcvfs.listdir(self.tempfolder)
-            if dirs or files:
+            if self.checkTempFolder():
                 if self.Dialog.yesno(__addonname__, __LS__(30092), autoclose=60000): self.delTempFolder(force=True)
 
             self.ripper = '"%s" mkv -r --messages=-stdout --progress=-same --decrypt disc:%s all ' \
