@@ -26,7 +26,7 @@ OS = platform.system()
 V = platform.version()
 
 # max. Resolution: 4K, Full-HD, HDTV, SDTV (PAL), SDTV (NTSC)
-MAXDIM = ['--maxwidth 3840 --maxheight 2160', 
+MAXDIM = ['--maxWidth 3840 --maxHeight 2160',
           '--maxWidth 1920 --maxHeight 1080',
           '--maxWidth 1280 --maxHeight 720',
           '--maxWidth 720 --maxHeight 576',
