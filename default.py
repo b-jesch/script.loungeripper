@@ -38,9 +38,6 @@ CODEC = ['H.264', 'H.265']
 # Encoding quality: High, Normal, Low
 QUALITY = ['-q 18', '-q 20', '-q 22', '-q 24', '-q 26']
 
-# Greyscaling (Black&White Sources)
-BW = '--greyscale'
-
 # foreign audiotracks
 ALLTRACKS = '-a 1,2,3,4,5,6,7,8,9,10'
 
@@ -401,6 +398,11 @@ class LoungeRipper(object):
                     break
 
             if not _foundmedia: raise self.RemovableMediaNotPresentException()
+
+            dirs, files = xbmcvfs.listdir(self.tempfolder)
+            if dirs or files:
+                if self.Dialog.yesno(__addonname__, __LS__(30092), autoclose=60000): self.delTempFolder(force=True)
+
             self.ripper = '"%s" mkv -r --messages=-stdout --progress=-same --decrypt disc:%s all ' \
                           '--minlength=%s "%s"' % \
                           (self.ripper_executable,

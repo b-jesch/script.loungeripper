@@ -737,20 +737,6 @@
 					</dependencies>
 					<control type="toggle"/>
 				</setting>
-				<setting id="p1_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p1_enabled">true</condition>
-								<condition operator="!is" setting="p1_mode">0</condition>
-								<condition operator="!is" setting="p1_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
 				<setting id="p1_additionalhandbrakeargs" type="string" label="30064" help="">
 					<level>0</level>
 					<default/>
@@ -927,20 +913,6 @@
 				<setting id="p2_foreignaudio" type="boolean" label="30024" help="30124">
 					<level>0</level>
 					<default>false</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p2_enabled">true</condition>
-								<condition operator="!is" setting="p2_mode">0</condition>
-								<condition operator="!is" setting="p2_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
-				<setting id="p2_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
 					<dependencies>
 						<dependency type="enable">
 							<and>
@@ -1139,20 +1111,6 @@
 					</dependencies>
 					<control type="toggle"/>
 				</setting>
-				<setting id="p3_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p3_enabled">true</condition>
-								<condition operator="!is" setting="p3_mode">0</condition>
-								<condition operator="!is" setting="p3_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
 				<setting id="p3_additionalhandbrakeargs" type="string" label="30064" help="">
 					<level>0</level>
 					<default/>
@@ -1329,20 +1287,6 @@
 				<setting id="p4_foreignaudio" type="boolean" label="30024" help="30124">
 					<level>0</level>
 					<default>false</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p4_enabled">true</condition>
-								<condition operator="!is" setting="p4_mode">0</condition>
-								<condition operator="!is" setting="p4_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
-				<setting id="p4_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
 					<dependencies>
 						<dependency type="enable">
 							<and>
@@ -1541,20 +1485,6 @@
 					</dependencies>
 					<control type="toggle"/>
 				</setting>
-				<setting id="p5_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p5_enabled">true</condition>
-								<condition operator="!is" setting="p5_mode">0</condition>
-								<condition operator="!is" setting="p5_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
 				<setting id="p5_additionalhandbrakeargs" type="string" label="30064" help="">
 					<level>0</level>
 					<default/>
@@ -1742,20 +1672,6 @@
 					</dependencies>
 					<control type="toggle"/>
 				</setting>
-				<setting id="p6_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p6_enabled">true</condition>
-								<condition operator="!is" setting="p6_mode">0</condition>
-								<condition operator="!is" setting="p6_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
 				<setting id="p6_additionalhandbrakeargs" type="string" label="30064" help="">
 					<level>0</level>
 					<default/>
@@ -1932,20 +1848,6 @@
 				<setting id="p7_foreignaudio" type="boolean" label="30024" help="30124">
 					<level>0</level>
 					<default>false</default>
-					<dependencies>
-						<dependency type="enable">
-							<and>
-								<condition operator="is" setting="p7_enabled">true</condition>
-								<condition operator="!is" setting="p7_mode">0</condition>
-								<condition operator="!is" setting="p7_mode">3</condition>
-							</and>
-						</dependency>
-					</dependencies>
-					<control type="toggle"/>
-				</setting>
-				<setting id="p7_blackandwhite" type="boolean" label="30028" help="30128">
-					<level>0</level>
-					<default>30041</default>
 					<dependencies>
 						<dependency type="enable">
 							<and>

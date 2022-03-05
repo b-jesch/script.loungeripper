@@ -330,6 +330,10 @@ msgctxt "#30091"
 msgid "H.265 (HEVC)"
 msgstr ""
 
+msgctxt "#30092"
+msgid "There are one or more files and/or folders present within the temporary folder. These files can lead to undesirable behaviors of the addon during the rip/encoding process. Do you want to delete these files now?"
+msgstr ""
+
 msgctxt "#30111"
 msgid "Various resolution levels from 4K (UHD) to SD format (PAL/NTSC) are available for the target format."
 msgstr ""
