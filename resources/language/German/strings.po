@@ -237,7 +237,7 @@ msgctxt "#30068"
 msgid "Drive ID"
 msgstr "Laufwerks-ID"
 
-msgctxt "30069"
+msgctxt "#30069"
 msgid "MakeMKV has reported a Medium Error. Some Retries have finally failed. The Backup is incomplete. Clean the medium and try again."
 msgstr "MakeMKV hat einen Medium Fehler gemeldet. Mehrere Leseversuche waren nicht erfolgreich, das Backup ist unvollständig. Bitte das Medium reinigen und erneut versuchen."
 

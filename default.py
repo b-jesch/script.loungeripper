@@ -331,14 +331,13 @@ class LoungeRipper(object):
                     self.notifyLog(_val[3].replace('"', ''))
                     self.lastmessage = _val[3].replace('"', '')
                     if 'MEDIUM ERROR' in _val[3] or 'HARDWARE ERROR' in _val[3]:
+                        self.ProgressBG.close()
                         raise self.MakemkvReportsMediumErrorException
                 else:
                     pass
 
             except UnicodeDecodeError:
                 continue
-            except Exception:
-                self.notifyLog('An error has occurred: %s' % traceback.format_exc(), xbmc.LOGERROR)
 
         self.ProgressBG.close()
         self.notifyLog('%s finished with status %s' % (process_exec, _comm.poll()))
