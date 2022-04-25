@@ -114,8 +114,8 @@ msgid "Profile 7"
 msgstr "Profil 7"
 
 msgctxt "#30038"
-msgid "Abort currently running Rip/Encode Process"
-msgstr "aktuell laufenden Rip/Encode-Prozess abbrechen"
+msgid "Abort currently running Rip/Encode/Image Process"
+msgstr "aktuell laufenden Rip/Encode/Image-Prozess abbrechen"
 
 msgctxt "#30039"
 msgid "Cleanup Temporary Folder completely"

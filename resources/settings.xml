@@ -601,7 +601,7 @@
 						</dependency>
 					</dependencies>
 				</setting>
-				<setting id="p1subfolder" type="boolean" label="30027" help="30127">
+				<setting id="p1_subfolder" type="boolean" label="30027" help="30127">
 					<level>0</level>
 					<default>true</default>
 					<control type="toggle"/>

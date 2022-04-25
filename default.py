@@ -11,6 +11,7 @@ import xbmcgui
 import xbmcaddon
 import xbmcvfs
 import traceback
+import shlex
 
 __addon__ = xbmcaddon.Addon()
 __addonID__ = __addon__.getAddonInfo('id')
@@ -97,10 +98,14 @@ class LoungeRipper(object):
 
         # Settings
 
-        self.ripper_executable = __addon__.getSetting('makemkvcon')
-        self.encoder_executable = __addon__.getSetting('HandBrakeCLI')
-        self.mkisofs_executable = __addon__.getSetting('mkisofs')
-        self.tempfolder = __addon__.getSetting('tempfolder')
+        self.ripper_executable = os.path.basename(__addon__.getSetting('makemkvcon'))
+        self.ripper_path = os.path.join(*(__addon__.getSetting('makemkvcon').split(os.sep))).replace(':', ':\\')
+        self.encoder_executable = os.path.basename(__addon__.getSetting('HandBrakeCLI'))
+        self.encoder_path = os.path.join(*(__addon__.getSetting('HandBrakeCLI').split(os.sep))).replace(':', ':\\')
+        self.mkisofs_executable = os.path.basename(__addon__.getSetting('mkisofs'))
+        self.mkisofs_path = os.path.join(*(__addon__.getSetting('mkisofs').split(os.sep))).replace(':', ':\\')
+
+        self.tempfolder = os.path.join(*(__addon__.getSetting('tempfolder')[:-1].split(os.sep))).replace(':', ':\\')
         self.del_tf = True if __addon__.getSetting('deltempfolder').upper() == 'TRUE' else False
 
         self.nativelanguage = __addon__.getSetting('nativelanguage')
@@ -132,7 +137,7 @@ class LoungeRipper(object):
         for _profile in ['p1_', 'p2_', 'p3_', 'p4_', 'p5_', 'p6_', 'p7_']:
             if __addon__.getSetting(_profile + 'profilename') == _profiles[_idx]:
                 self.task = _profiles[_idx]
-                self.profile['basefolder'] = __addon__.getSetting(_profile + 'basefolder')
+                self.profile['basefolder'] = os.path.join(*(__addon__.getSetting(_profile + 'basefolder')[:-1].split(os.sep))).replace(':', ':\\')
                 self.profile['subfolder'] = True if __addon__.getSetting(_profile + 'subfolder').upper() == 'TRUE' else False
                 self.profile['codec'] = CODEC[int(__addon__.getSetting(_profile + 'codec'))]
                 self.profile['resolution'] = MAXDIM[int(__addon__.getSetting(_profile + 'resolution'))]
@@ -145,15 +150,15 @@ class LoungeRipper(object):
         if _profiles[_idx] == __LS__(30038):
             _procpid = self.getProcessPID(self.ripper_executable)
             if _procpid:
-                self.notifyLog('Killing ripper process with PID %s' % _procpid)
+                self.notifyLog('Killing ripper process with PID %s' % _procpid.decode())
                 self.killProcessPID(_procpid, process=self.ripper_executable)
             _procpid = self.getProcessPID(self.encoder_executable)
             if _procpid:
-                self.notifyLog('Killing encoder process with PID %s' % _procpid)
+                self.notifyLog('Killing encoder process with PID %s' % _procpid.decode())
                 self.killProcessPID(_procpid, process=self.encoder_executable)
             _procpid = self.getProcessPID(self.mkisofs_executable)
             if _procpid:
-                self.notifyLog('Killing mkisofs process with PID %s' % _procpid)
+                self.notifyLog('Killing mkisofs process with PID %s' % _procpid.decode())
                 self.killProcessPID(_procpid, process=self.mkisofs_executable)
             raise self.KillCurrentProcessCalledException()
 
@@ -164,10 +169,15 @@ class LoungeRipper(object):
     def notifyLog(self, message, level=xbmc.LOGDEBUG):
         xbmc.log('[%s] %s' % (__addonID__, message), level)
 
-    def checkSystemSettings(self):
+    def checkSystemSettings(self, mode):
 
-        if not self.ripper_executable or not self.encoder_executable or not self.mkisofs_executable:
+        if mode in [0, 1, 3] and not self.ripper_executable:
             raise self.SystemSettingUndefinedException()
+        elif mode in [2] and not self.encoder_executable:
+            raise self.SystemSettingUndefinedException()
+        elif mode in [3] and not self.mkisofs_executable:
+            raise self.SystemSettingUndefinedException()
+
         if not self.tempfolder or not self.profile['basefolder']:
             raise self.SystemSettingUndefinedException()
 
@@ -181,7 +191,7 @@ class LoungeRipper(object):
             _tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % os.path.basename(process)
             _syscmd = subprocess.Popen(_tlcall, shell=True, stdout=subprocess.PIPE)
             PID = _syscmd.communicate()[0].strip().splitlines()
-            if len(PID) > 1 and os.path.basename(process) in PID[-1]:
+            if len(PID) > 1 and os.path.basename(process) in PID[-1].decode():
                 return PID[-1].split()[1]
             else: return False
         else:
@@ -278,8 +288,7 @@ class LoungeRipper(object):
         else:
             raise self.CouldNotFindValidFilesException()
 
-    def pollSubprocess(self, process_exec, process, header):
-        _comm = None
+    def pollSubprocess(self, process_exec, process_path, process, header):
         _val = ''
         message = __LS__(30063)
         _m = __LS__(30063)
@@ -288,11 +297,11 @@ class LoungeRipper(object):
         _startsb = time.mktime(time.localtime())
         self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
 
-        _comm = subprocess.Popen(process.encode('utf-8'), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 shell=True, encoding='utf-8', errors='ignore', text=True)
-        while _comm.poll() is None:
+        proc = subprocess.Popen(shlex.split(process), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                executable=process_path, encoding='utf-8', text=True)
+        while proc.poll() is None:
+            if self.Monitor.abortRequested(): break
             try:
-                if self.Monitor.abortRequested(): break
                 if percent != _p or message != _m:
                     if percent > 0.4 and message == 'Encoding':
                         _elapsed = time.mktime(time.localtime()) - _startsb
@@ -308,7 +317,7 @@ class LoungeRipper(object):
                     _p = percent
                     _m = message
 
-                msg = _comm.stdout.readline().rstrip()
+                msg = proc.stdout.readline().rstrip()
                 data = msg.split(':')
                 if 'PRGC' in data[0]:
                     _val = data[1].split(',')
@@ -340,8 +349,8 @@ class LoungeRipper(object):
                 continue
 
         self.ProgressBG.close()
-        self.notifyLog('%s finished with status %s' % (process_exec, _comm.poll()))
-        return _comm.poll()
+        self.notifyLog('%s finished with status %s' % (process_exec, proc.poll()))
+        return proc.poll()
 
     def copyfile(self, source, dest):
         chunks = 0
@@ -375,7 +384,7 @@ class LoungeRipper(object):
 
         self.notifyLog('Engage Lounge Ripper %s on %s %s' % (__version__, OS, V))
         self.getUserProfiles()
-        self.checkSystemSettings()
+        self.checkSystemSettings(self.profile['mode'])
         self.notifyLog('starting task \'%s\' (mode %s)' % (self.task, self.profile['mode']))
 
         if self.profile['mode'] == 0 or self.profile['mode'] == 1 or self.profile['mode'] == 3:
@@ -387,8 +396,9 @@ class LoungeRipper(object):
 
             _foundmedia = False
             try:
+                print('"%s" info list -r' % self.ripper_executable, self.ripper_path)
                 _rv = subprocess.check_output('"%s" info list -r' % self.ripper_executable,
-                                              stderr=subprocess.STDOUT, shell=True)
+                                              stderr=subprocess.STDOUT, executable=self.ripper_path)
             except subprocess.CalledProcessError as e:
                 _rv = e.output
 
@@ -420,7 +430,7 @@ class LoungeRipper(object):
 
             self.notifyLog('Ripper command line: %s' % self.ripper)
 
-            _rv = self.pollSubprocess(self.ripper_executable, self.ripper, self.title)
+            _rv = self.pollSubprocess(self.ripper_executable, self.ripper_path, self.ripper, self.title)
             if _rv is None:
                 raise self.RipEncodeProcessStatesToBGException()
             if _rv != 0: raise self.MakemkvExitsNotProperlyException(self.lastmessage)
@@ -438,7 +448,7 @@ class LoungeRipper(object):
                              % (self.mkisofs_executable, self.title.upper(), isofile, isofolder)
 
                 self.notifyLog('mkisofs command line: %s' % self.mkiso)
-                _rv = self.pollSubprocess(self.mkisofs_executable, self.mkiso, self.title)
+                _rv = self.pollSubprocess(self.mkisofs_executable, self.mkisofs_path, self.mkiso, self.title)
                 if _rv is None:
                     raise self.RipEncodeProcessStatesToBGException()
                 if _rv != 0: self.MkisofsExitsNotProperlyException()
@@ -481,7 +491,7 @@ class LoungeRipper(object):
 
                 self.notifyLog('Encoder command line: %s' % self.encoder)
 
-                _rv = self.pollSubprocess(self.encoder_executable, self.encoder, self.destfile)
+                _rv = self.pollSubprocess(self.encoder_executable, self.encoder_path, self.encoder, self.destfile)
                 if _rv is None:
                     raise self.RipEncodeProcessStatesToBGException()
                 if _rv != 0:
