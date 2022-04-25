@@ -345,7 +345,8 @@ class LoungeRipper(object):
                 else:
                     pass
 
-            except UnicodeDecodeError:
+            except (UnicodeDecodeError, ValueError) as e:
+                self.notifyLog('Ignore process error: %s' % str(e))
                 continue
 
         self.ProgressBG.close()
@@ -444,7 +445,7 @@ class LoungeRipper(object):
                 # Make ISO
                 #
                 isofile = os.path.join(self.tempfolder, self.title + '.iso')
-                self.mkiso = '"%s" -udf -R -J -allow-limited-size -input-charset utf-8 -iso-level 3 -V "%s" -o "%s" "%s"' \
+                self.mkiso = '"%s" -UDF -R -J -input-charset utf-8 -iso-level 3 -V "%s" -o "%s" "%s"' \
                              % (self.mkisofs_executable, self.title.upper(), isofile, isofolder)
 
                 self.notifyLog('mkisofs command line: %s' % self.mkiso)
