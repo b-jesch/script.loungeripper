@@ -54,12 +54,14 @@ def fmt_size(num, suffix='Bytes'):
 
 
 def parsePath(path):
-    '''
+    """
     :param path: Posix or Windows Path
     :return: Path created with os.path.join for both notifications (Windows/Posix)
-    '''
+    """
     while path[-1] == '\\': path = path[:-1]
-    return os.path.join(*(path.split(os.sep))).replace(':', ':\\')
+    if OS == 'Windows': return os.path.join(*(path.split(os.sep))).replace(':', ':\\')
+    return '/' + os.path.join(*(path.split(os.sep)))
+
 
 class LoungeRipper(object):
 
@@ -405,8 +407,7 @@ class LoungeRipper(object):
 
             _foundmedia = False
             try:
-                print('"%s" info list -r' % self.ripper_executable, self.ripper_path)
-                _rv = subprocess.check_output('"%s" info list -r' % self.ripper_executable,
+                _rv = subprocess.check_output(shlex.split('"%s" info list -r' % self.ripper_executable),
                                               stderr=subprocess.STDOUT, executable=self.ripper_path)
             except subprocess.CalledProcessError as e:
                 _rv = e.output
