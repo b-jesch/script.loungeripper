@@ -53,6 +53,14 @@ def fmt_size(num, suffix='Bytes'):
     return "%.1f% s%s" % (num, 'T', suffix)
 
 
+def parsePath(path):
+    '''
+    :param path: Posix or Windows Path
+    :return: Path created with os.path.join for both notifications (Windows/Posix)
+    '''
+    while path[-1] == '\\': path = path[:-1]
+    return os.path.join(*(path.split(os.sep))).replace(':', ':\\')
+
 class LoungeRipper(object):
 
     class NoProfileEnabledException(Exception): pass
@@ -99,13 +107,13 @@ class LoungeRipper(object):
         # Settings
 
         self.ripper_executable = os.path.basename(__addon__.getSetting('makemkvcon'))
-        self.ripper_path = os.path.join(*(__addon__.getSetting('makemkvcon').split(os.sep))).replace(':', ':\\')
+        self.ripper_path = parsePath(__addon__.getSetting('makemkvcon'))
         self.encoder_executable = os.path.basename(__addon__.getSetting('HandBrakeCLI'))
-        self.encoder_path = os.path.join(*(__addon__.getSetting('HandBrakeCLI').split(os.sep))).replace(':', ':\\')
+        self.encoder_path = parsePath(__addon__.getSetting('HandBrakeCLI'))
         self.mkisofs_executable = os.path.basename(__addon__.getSetting('mkisofs'))
-        self.mkisofs_path = os.path.join(*(__addon__.getSetting('mkisofs').split(os.sep))).replace(':', ':\\')
+        self.mkisofs_path = parsePath(__addon__.getSetting('mkisofs'))
 
-        self.tempfolder = os.path.join(*(__addon__.getSetting('tempfolder')[:-1].split(os.sep))).replace(':', ':\\')
+        self.tempfolder = parsePath(__addon__.getSetting('tempfolder'))
         self.del_tf = True if __addon__.getSetting('deltempfolder').upper() == 'TRUE' else False
 
         self.nativelanguage = __addon__.getSetting('nativelanguage')
@@ -137,7 +145,7 @@ class LoungeRipper(object):
         for _profile in ['p1_', 'p2_', 'p3_', 'p4_', 'p5_', 'p6_', 'p7_']:
             if __addon__.getSetting(_profile + 'profilename') == _profiles[_idx]:
                 self.task = _profiles[_idx]
-                self.profile['basefolder'] = os.path.join(*(__addon__.getSetting(_profile + 'basefolder')[:-1].split(os.sep))).replace(':', ':\\')
+                self.profile['basefolder'] = parsePath(__addon__.getSetting(_profile + 'basefolder'))
                 self.profile['subfolder'] = True if __addon__.getSetting(_profile + 'subfolder').upper() == 'TRUE' else False
                 self.profile['codec'] = CODEC[int(__addon__.getSetting(_profile + 'codec'))]
                 self.profile['resolution'] = MAXDIM[int(__addon__.getSetting(_profile + 'resolution'))]
