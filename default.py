@@ -56,11 +56,11 @@ def fmt_size(num, suffix='Bytes'):
 def parsePath(path):
     """
     :param path: Posix or Windows Path
-    :return: Path created with os.path.join for both notifications (Windows/Posix)
+    :return: Path created with os.path.join for both notations (Windows/Posix) using for subprocess calls
     """
     while path[-1] == '\\': path = path[:-1]
     if OS == 'Windows': return os.path.join(*(path.split(os.sep))).replace(':', ':\\')
-    return '/' + os.path.join(*(path.split(os.sep)))
+    return path
 
 
 class LoungeRipper(object):
@@ -161,15 +161,15 @@ class LoungeRipper(object):
         if _profiles[_idx] == __LS__(30038):
             _procpid = self.getProcessPID(self.ripper_executable)
             if _procpid:
-                self.notifyLog('Killing ripper process with PID %s' % _procpid.decode())
+                self.notifyLog('Killing ripper process with PID %s' % _procpid)
                 self.killProcessPID(_procpid, process=self.ripper_executable)
             _procpid = self.getProcessPID(self.encoder_executable)
             if _procpid:
-                self.notifyLog('Killing encoder process with PID %s' % _procpid.decode())
+                self.notifyLog('Killing encoder process with PID %s' % _procpid)
                 self.killProcessPID(_procpid, process=self.encoder_executable)
             _procpid = self.getProcessPID(self.mkisofs_executable)
             if _procpid:
-                self.notifyLog('Killing mkisofs process with PID %s' % _procpid.decode())
+                self.notifyLog('Killing mkisofs process with PID %s' % _procpid)
                 self.killProcessPID(_procpid, process=self.mkisofs_executable)
             raise self.KillCurrentProcessCalledException()
 
@@ -358,7 +358,7 @@ class LoungeRipper(object):
                     if _val[5] != '':
                         self.notifyLog('Reported media on \'%s\': %s' % (_val[6], _val[5]))
                         self.title = _val[5]
-                        break
+                        continue
                 elif 'Encoding' in data[0]:
                     message = data[0]
                     _val = data[1].split(',')
