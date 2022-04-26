@@ -73,7 +73,6 @@ class LoungeRipper(object):
     class MakemkvReportsMediumErrorException(Exception): pass
     class HandBrakeCLIExitsNotProperlyException(Exception): pass
     class MkisofsExitsNotProperlyException(Exception): pass
-    class RipEncodeProcessStatesToBGException(Exception): pass
     class AbortedRipCompletedException(Exception): pass
     class KillCurrentProcessCalledException(Exception): pass
     class CleanUpTempFolderException(Exception): pass
@@ -86,9 +85,10 @@ class LoungeRipper(object):
         self.src = None
         self.tmp = None
         self.destfolder = None
+        self.destfile = None
         self.title = None
-        self.extensions = ['.mkv', '.ts', '.m2ts', '.mp4', '.mpg', '.mpeg',
-                           '.avi', '.flv', '.wmv', '.264', '.mov', '.iso']
+        self.extensions = ['.mkv', '.ts', '.m2ts', '.mp4', '.mpg', '.mpeg', '.avi', '.flv', '.wmv',
+                           '.264', '.mov', '.iso']
         self.task = None
         self.process_all = None
         self.lastmessage = None
@@ -99,6 +99,7 @@ class LoungeRipper(object):
         self.ripper = None
         self.encoder = None
         self.mkiso = None
+        self.mediacheck = None
 
         # Other
 
@@ -289,7 +290,11 @@ class LoungeRipper(object):
             self.title = self.title.replace('_', ' ')
             self.title = " ".join(word.capitalize() for word in self.title.split())
 
-            self.destfile = self.title + os.path.splitext(self.src)[1]
+            if self.profile['mode'] == 2:
+                self.destfile = self.title + '.mkv'
+            else:
+                self.destfile = self.title + os.path.splitext(self.src)[1]
+
             if self.profile['subfolder']:
                 self.destfolder = os.path.join(self.profile['basefolder'], self.title)
             else:
@@ -298,17 +303,27 @@ class LoungeRipper(object):
         else:
             raise self.CouldNotFindValidFilesException()
 
-    def pollSubprocess(self, process_exec, process_path, process, header):
+    def pollSubprocess(self, process_exec, process_path, process, header=None):
         _val = ''
         message = __LS__(30063)
         _m = __LS__(30063)
         percent = 0
         _p = 0
         _startsb = time.mktime(time.localtime())
-        self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
+        if header is not None: self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
+        self.notifyLog(' %s command line: %s' % (process_exec, process))
 
-        proc = subprocess.Popen(shlex.split(process), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                executable=process_path, encoding='utf-8', text=True)
+        if OS == 'Windows':
+            startupinfo = subprocess.STARTUPINFO()
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            startupinfo.wShowWindow = subprocess.SW_HIDE
+
+            proc = subprocess.Popen(shlex.split(process), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                    executable=process_path, encoding='utf-8', text=True, startupinfo=startupinfo)
+        else:
+            proc = subprocess.Popen(shlex.split(process), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                    executable=process_path, encoding='utf-8', text=True)
+
         while proc.poll() is None:
             if self.Monitor.abortRequested(): break
             try:
@@ -338,6 +353,12 @@ class LoungeRipper(object):
                 elif 'PRGV' in data[0]:
                     _val = data[1].split(',')
                     percent = int(_val[0]) * 100 // int(_val[2])
+                elif 'DRV' in data[0]:
+                    _val = data[1].replace('"', '').split(',')
+                    if _val[5] != '':
+                        self.notifyLog('Reported media on \'%s\': %s' % (_val[6], _val[5]))
+                        self.title = _val[5]
+                        break
                 elif 'Encoding' in data[0]:
                     message = data[0]
                     _val = data[1].split(',')
@@ -359,7 +380,7 @@ class LoungeRipper(object):
                 self.notifyLog('Ignore process error: %s' % str(e))
                 continue
 
-        self.ProgressBG.close()
+        if header is not None: self.ProgressBG.close()
         self.notifyLog('%s finished with status %s' % (process_exec, proc.poll()))
         return proc.poll()
 
@@ -405,22 +426,10 @@ class LoungeRipper(object):
             # Check if media is present in drive [driveno]
             # raise self.MediaIsNotPresentException if isn't
 
-            _foundmedia = False
-            try:
-                _rv = subprocess.check_output(shlex.split('"%s" info list -r' % self.ripper_executable),
-                                              stderr=subprocess.STDOUT, executable=self.ripper_path)
-            except subprocess.CalledProcessError as e:
-                _rv = e.output
+            self.mediacheck = '"%s" info list -r' % self.ripper_executable
+            _rv = self.pollSubprocess(self.ripper_executable, self.ripper_path, self.mediacheck)
 
-            for _line in iter(_rv.splitlines()):
-                _item = _line.decode('utf-8').replace('"', '').split(',')
-                if 'DRV:' in _item[0] and _item[5] != '':
-                    self.notifyLog('Reported media on \'%s\': %s' % (_item[6], _item[5]))
-                    _foundmedia = True
-                    self.title = _item[5]
-                    break
-
-            if not _foundmedia: raise self.RemovableMediaNotPresentException()
+            if not self.title: raise self.RemovableMediaNotPresentException()
 
             if self.checkTempFolder():
                 if self.Dialog.yesno(__addonname__, __LS__(30092), autoclose=60000): self.delTempFolder(force=True)
@@ -438,11 +447,7 @@ class LoungeRipper(object):
                 self.ripper = '"%s" backup -r --decrypt --cache=16 --noscan --progress=-same disc:%s "%s"'\
                               % (self.ripper_executable, self.driveid, isofolder)
 
-            self.notifyLog('Ripper command line: %s' % self.ripper)
-
             _rv = self.pollSubprocess(self.ripper_executable, self.ripper_path, self.ripper, self.title)
-            if _rv is None:
-                raise self.RipEncodeProcessStatesToBGException()
             if _rv != 0: raise self.MakemkvExitsNotProperlyException(self.lastmessage)
             if self.eject:
                 xbmc.executebuiltin('EjectTray()')
@@ -457,10 +462,7 @@ class LoungeRipper(object):
                 self.mkiso = '"%s" -UDF -R -J -input-charset utf-8 -iso-level 3 -V "%s" -o "%s" "%s"' \
                              % (self.mkisofs_executable, self.title.upper(), isofile, isofolder)
 
-                self.notifyLog('mkisofs command line: %s' % self.mkiso)
                 _rv = self.pollSubprocess(self.mkisofs_executable, self.mkisofs_path, self.mkiso, self.title)
-                if _rv is None:
-                    raise self.RipEncodeProcessStatesToBGException()
                 if _rv != 0: self.MkisofsExitsNotProperlyException()
 
                 # remove ISO folder
@@ -499,13 +501,10 @@ class LoungeRipper(object):
                                 self.profile['resolution'],
                                 self.profile['additionalhandbrakeargs'])
 
-                self.notifyLog('Encoder command line: %s' % self.encoder)
-
                 _rv = self.pollSubprocess(self.encoder_executable, self.encoder_path, self.encoder, self.destfile)
-                if _rv is None:
-                    raise self.RipEncodeProcessStatesToBGException()
                 if _rv != 0:
                     raise self.HandBrakeCLIExitsNotProperlyException()
+
                 self.copyfile(os.path.join(self.tempfolder, self.tmp), os.path.join(self.destfolder, self.destfile))
                 if self.del_tf: self.delTempFolder(force=True, file=os.path.join(self.tempfolder, self.src))
                 #
@@ -557,10 +556,6 @@ except Ripper.HandBrakeCLIExitsNotProperlyException:
 except Ripper.MkisofsExitsNotProperlyException:
     ok = Ripper.Dialog.ok(__addonname__, __LS__(30062))
     Ripper.notifyLog('An error occured while processing %s' % Ripper.mkisofs_executable, level=xbmc.LOGERROR)
-except Ripper.RipEncodeProcessStatesToBGException:
-    Ripper.notifyLog('Rip/Encode processes turns into a background process')
-    Ripper.notifyLog('After this toolchain may be broken and incomplete')
-    Ripper.notifyLog('You can continue processing of toolchain afterwards')
 except Ripper.KillCurrentProcessCalledException:
     Ripper.notifyLog('All current ripper and encoders terminated')
 except Ripper.CleanUpTempFolderException:
