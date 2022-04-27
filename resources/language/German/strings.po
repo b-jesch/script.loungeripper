@@ -25,6 +25,10 @@ msgctxt "#30012"
 msgid "Quality"
 msgstr "Qualität"
 
+msgctxt "#30013"
+msgid "Current Task closed or leaved by System"
+msgstr "System hat aktuellen Task beendet oder verloren"
+
 msgctxt "#30016"
 msgid "Path to 'makemkvcon'"
 msgstr "Pfad zu 'makemkvcon'"

@@ -73,6 +73,7 @@ class LoungeRipper(object):
     class MakemkvReportsMediumErrorException(Exception): pass
     class HandBrakeCLIExitsNotProperlyException(Exception): pass
     class MkisofsExitsNotProperlyException(Exception): pass
+    class SubProcessAbortException(Exception): pass
     class AbortedRipCompletedException(Exception): pass
     class KillCurrentProcessCalledException(Exception): pass
     class CleanUpTempFolderException(Exception): pass
@@ -303,14 +304,14 @@ class LoungeRipper(object):
         else:
             raise self.CouldNotFindValidFilesException()
 
-    def pollSubprocess(self, process_exec, process_path, process, header=None):
+    def pollSubprocess(self, process_exec, process_path, process, header=__LS__(30010)):
         _val = ''
         message = __LS__(30063)
         _m = __LS__(30063)
         percent = 0
         _p = 0
         _startsb = time.mktime(time.localtime())
-        if header is not None: self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
+        self.ProgressBG.create('%s - %s' % (__addonname__, header), message)
         self.notifyLog(' %s command line: %s' % (process_exec, process))
 
         if OS == 'Windows':
@@ -380,8 +381,9 @@ class LoungeRipper(object):
                 self.notifyLog('Ignore process error: %s' % str(e))
                 continue
 
-        if header is not None: self.ProgressBG.close()
+        self.ProgressBG.close()
         self.notifyLog('%s finished with status %s' % (process_exec, proc.poll()))
+        if proc.poll() is None: raise self.SubProcessAbortException()
         return proc.poll()
 
     def copyfile(self, source, dest):
@@ -556,6 +558,9 @@ except Ripper.HandBrakeCLIExitsNotProperlyException:
 except Ripper.MkisofsExitsNotProperlyException:
     ok = Ripper.Dialog.ok(__addonname__, __LS__(30062))
     Ripper.notifyLog('An error occured while processing %s' % Ripper.mkisofs_executable, level=xbmc.LOGERROR)
+except Ripper.SubProcessAbortException:
+    Ripper.notifyLog('Rip/Encode/Backup processes received an abort signal')
+    Ripper.Dialog.notification(__addonname__, __LS__(30013), xbmcgui.NOTIFICATION_ERROR)
 except Ripper.KillCurrentProcessCalledException:
     Ripper.notifyLog('All current ripper and encoders terminated')
 except Ripper.CleanUpTempFolderException:
