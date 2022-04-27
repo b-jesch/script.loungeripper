@@ -203,7 +203,7 @@ class LoungeRipper(object):
             _syscmd = subprocess.Popen(_tlcall, shell=True, stdout=subprocess.PIPE)
             PID = _syscmd.communicate()[0].strip().splitlines()
             if len(PID) > 1 and os.path.basename(process) in PID[-1].decode():
-                return PID[-1].split()[1]
+                return PID[-1].split()[1].decode()
             else: return False
         else:
             self.notifyLog('Running on %s, could not determine PID of %s' % (OS, process))
