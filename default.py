@@ -421,6 +421,7 @@ class LoungeRipper(object):
         self.checkSystemSettings(self.profile['mode'])
         self.notifyLog('starting task \'%s\' (mode %s)' % (self.task, self.profile['mode']))
 
+        isofolder = os.path.join(self.tempfolder, 'ISO')
         if self.profile['mode'] == 0 or self.profile['mode'] == 1 or self.profile['mode'] == 3:
             #
             # RIP ONLY / RIP AND ENCODE / BACKUP
@@ -444,7 +445,6 @@ class LoungeRipper(object):
                            self.tempfolder)
 
             if self.profile['mode'] == 3:
-                isofolder = os.path.join(self.tempfolder, 'ISO')
                 if not xbmcvfs.exists(isofolder): xbmcvfs.mkdirs(isofolder)
                 self.ripper = '"%s" backup -r --decrypt --cache=16 --noscan --progress=-same disc:%s "%s"'\
                               % (self.ripper_executable, self.driveid, isofolder)
@@ -461,7 +461,8 @@ class LoungeRipper(object):
                 # Make ISO
                 #
                 isofile = os.path.join(self.tempfolder, self.title + '.iso')
-                self.mkiso = '"%s" -UDF -R -J -input-charset utf-8 -iso-level 3 -V "%s" -o "%s" "%s"' \
+                self.mkiso = '"%s" -udf -R -J -input-charset utf-8 -iso-level 3 -allow-limited-size ' \
+                             '-V "%s" -o "%s" "%s"' \
                              % (self.mkisofs_executable, self.title.upper(), isofile, isofolder)
 
                 _rv = self.pollSubprocess(self.mkisofs_executable, self.mkisofs_path, self.mkiso, self.title)
