@@ -461,9 +461,10 @@ class LoungeRipper(object):
                 # Make ISO
                 #
                 isofile = os.path.join(self.tempfolder, self.title + '.iso')
-                self.mkiso = '"%s" -udf -R -J -input-charset utf-8 -iso-level 3 -allow-limited-size ' \
+                add_opt = '' if OS == 'Windows' else '-allow-limited-size'
+                self.mkiso = '"%s" -udf -R -J -input-charset utf-8 -iso-level 3 %s ' \
                              '-V "%s" -o "%s" "%s"' \
-                             % (self.mkisofs_executable, self.title.upper(), isofile, isofolder)
+                             % (self.mkisofs_executable, add_opt, self.title.upper(), isofile, isofolder)
 
                 _rv = self.pollSubprocess(self.mkisofs_executable, self.mkisofs_path, self.mkiso, self.title)
                 if _rv != 0: self.MkisofsExitsNotProperlyException()
