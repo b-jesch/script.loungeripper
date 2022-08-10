@@ -289,6 +289,7 @@ class LoungeRipper(object):
                 self.title = title
 
             self.title = self.title.replace('_', ' ')
+            self.title = self.title.replace('-SEG_MainFeature', '')
             self.title = " ".join(word.capitalize() for word in self.title.split())
 
             if self.profile['mode'] == 2:
