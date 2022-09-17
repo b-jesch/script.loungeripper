@@ -288,7 +288,7 @@ class LoungeRipper(object):
             elif title:
                 self.title = title
 
-            self.title = self.title.replace('_', ' ')
+            self.title = self.title.split('_')[0]
             self.title = re.sub('-seg_mainfeature', '', self.title, flags=re.IGNORECASE)
             self.title = " ".join(word.capitalize() for word in self.title.split())
 
