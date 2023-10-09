@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import platform
 import re
 import subprocess
@@ -278,7 +276,6 @@ class LoungeRipper(object):
         if _fsize > 0:
             self.title = datetime.datetime.now().strftime('%Y-%m-%d.%H-%M-%S')
             _basename = '.'.join(self.src.split('.')[0:-1])
-            if '_t0' in _basename: _basename = _basename[:-4]
             if 'title' in _basename and title == '':
                 kb = xbmc.Keyboard('', __LS__(30030))
                 kb.doModal()
@@ -288,8 +285,9 @@ class LoungeRipper(object):
             elif title:
                 self.title = title
 
-            self.title = self.title.split('_')[0]
-            self.title = re.sub('-seg_mainfeature', '', self.title, flags=re.IGNORECASE)
+            # remove '-[SEG|FPL]_MainFeature' from title and use only first part of title before underscore
+
+            self.title = re.sub('-[a-zA-Z]{3}_mainfeature', '', self.title, flags=re.IGNORECASE).split('_')[0]
             self.title = " ".join(word.capitalize() for word in self.title.split())
 
             if self.profile['mode'] == 2:
@@ -303,7 +301,7 @@ class LoungeRipper(object):
                 self.destfolder = self.profile['basefolder']
             if not xbmcvfs.exists(self.destfolder): xbmcvfs.mkdirs(self.destfolder)
         else:
-            raise self.CouldNotFindValidFilesException()
+            if self.process_all is False: raise self.CouldNotFindValidFilesException()
 
     def pollSubprocess(self, process_exec, process_path, process, header=__LS__(30010)):
         _val = ''
