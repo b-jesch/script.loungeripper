@@ -294,12 +294,13 @@ class LoungeRipper(object):
                 self.destfile = self.title + '.mkv'
             else:
                 self.destfile = self.title + os.path.splitext(self.src)[1]
-
             if self.profile['subfolder']:
                 self.destfolder = os.path.join(self.profile['basefolder'], self.title)
             else:
                 self.destfolder = self.profile['basefolder']
-            if not xbmcvfs.exists(self.destfolder): xbmcvfs.mkdirs(self.destfolder)
+
+            if self.profile['basefolder'] != self.tempfolder and not xbmcvfs.exists(self.destfolder): xbmcvfs.mkdirs(self.destfolder)
+
         else:
             if self.process_all is False: raise self.CouldNotFindValidFilesException()
 
@@ -476,6 +477,12 @@ class LoungeRipper(object):
             # RIP ONLY / BACKUP - WE ARE READY
             #
             self.notifyLog('Encoding of \'%s\' not required in this profile' % self.destfile)
+
+            if self.profile['mode'] == 0 and self.tempfolder == self.profile['basefolder']:
+                xbmcvfs.rename(os.path.join(self.tempfolder, self.src), os.path.join(self.tempfolder, self.destfile))
+                self.notifyLog('Temp and destination folder is identical, copy files isn\'t required.')
+                return
+
             self.copyfile(os.path.join(self.tempfolder, self.src), os.path.join(self.destfolder, self.destfile))
 
         while True:
